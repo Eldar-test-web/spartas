@@ -161,11 +161,11 @@ SP.DIFFS = ["Asan", "Orta", "Çətin"];
 /* ---------- Oyun siyahısı (Oyunlar bölməsi üçün) ---------- */
 SP.GAMES = [
   { key: "wordle", href: "wordle.html", title: "İntellektual Wordle", icon: "wordle", desc: "4, 5, 6, 7, 8 hərfli Azərbaycan sözlərini 6 cəhddə tap.", tag: "Gündəlik" },
-  { key: "krossvord", href: "krossvord.html", title: "Krossvord", icon: "cross", desc: "26 şaquli və üfüqi sualdən ibarət klassik şəbəkə.", tag: "Yeni" },
-  { key: "olcu", href: "olcu-tahmini.html", title: "Ölçü Tahmini", icon: "ruler", desc: "Siluetə bax, hündürlüyü təxmin et — 5 raund, 500 xal.", tag: "Yeni" },
+  { key: "krossvord", href: "krossvord.html", title: "Krossvord", icon: "cross", desc: "26 şaquli və üfüqi sualdən ibarət klassik şəbəkə.", tag: "" },
+  { key: "olcu", href: "olcu-tahmini.html", title: "Ölçü Tahmini", icon: "ruler", desc: "Siluetə bax, hündürlüyü təxmin et — 5 raund, 500 xal.", tag: "" },
   { key: "fermi", href: "fermi-tahmini.html", title: "Fermi Tahmini", icon: "calc", desc: "Raqəmi təxmin etməyi tələb edən suallar.", tag: "" },
-  { key: "mini", href: "mini-oyunlar.html", title: "Mini Oyunlar", icon: "dice", desc: "Zər, yaddaş, reaksiya və tapmaca — qısa turlar.", tag: "" },
-  { key: "viktorina", href: "viktorina.html", title: "Klassik Suallar", icon: "scroll", desc: "Tarix, elm, mədəniyyət — 10 sual, 20 saniyə.", tag: "" }
+  { key: "mini", href: "mini-oyunlar.html", title: "Mini Oyunlar", icon: "dice", desc: "2048, Tetris, yaddaş və dos-crossa — qısa turlar.", tag: "" },
+  { key: "viktorina", href: "viktorina.html", title: "Klassik Suallar", icon: "scroll", desc: "Kateqoriya və sual sayını seç, 4 variantdan düzgün cavabı tap.", tag: "" }
 ];
 
 /* ---------- İkonlar ---------- */

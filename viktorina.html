@@ -4,12 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Klassik Suallar — SPARTANS Viktorina</title>
-<meta name="description" content="Viktorina: tarix, coğrafiya, elm, mədəniyyət, idman və məntiq üzrə suallar. Hər sual üçün 20 saniyə.">
+<meta name="description" content="Viktorina: tarix, coğrafiya, elm, mədəniyyət, idman və məntiq üzrə suallar. ">
 <meta name="theme-color" content="#0D6940">
 <link rel="icon" href="assets/img/favicon.png" sizes="48x48" type="image/png">
 <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
 <link rel="manifest" href="site.webmanifest">
 <link rel="stylesheet" href="assets/css/main.css">
+<link rel="stylesheet" href="assets/css/pages.css">
 </head>
 <body data-page="viktorina">
 <a class="skip-link" href="#main">Əsas mətnə keç</a>
@@ -21,25 +22,41 @@
       <div class="page-head">
         <p class="eyebrow">Oyun 06 · Viktorina</p>
         <h1>Klassik Suallar</h1>
-        <p class="lead">Kateqoriyanı seç, suala cavab ver. Hər sual üçün 20 saniyə — nə qədər tez cavab versən, o qədər çox vaxt bonusu.</p>
+        <p class="lead">Kateqoriya və sual sayını seç, hər suala dörd cavabdan birini tap. Səhv cavab xal vermir — doğru cavabdan sonra qısa izah göstərilir.</p>
       </div>
 
-      <div class="grid" style="grid-template-columns:minmax(0,1fr) 320px;align-items:start">
-        <section class="card" id="panel"></section>
+      <div class="game-layout">
+        <section class="game-frame-card" data-frame data-game="viktorina"
+                 data-frame-src="vendor/quiz/game.html" data-frame-controls="cat,n"
+                 data-title="Klassik suallar — viktorina">
+          <div class="game-frame-bar">
+            <span class="frame-status" data-frame-status>Yüklənir</span>
+            <div class="row" data-frame-controls></div>
+            <button class="btn btn-sm btn-ghost" type="button" data-frame-restart>Yeni tur</button>
+          </div>
+          <div data-frame-slot></div>
+        </section>
 
         <aside class="rail">
           <section class="card">
-            <h2>Cari tur</h2>
-            <div class="grid g2" id="vStats"></div>
+            <h2>Statistika</h2>
+            <div class="row" data-frame-stats="4"></div>
+            <p class="small dim" style="margin:14px 0 0">Raqəmlər yalnız bu brauzerdə saxlanılan turlardan hesablanır.</p>
           </section>
+
           <section class="card">
-            <h3>Seriya</h3>
-            <p class="small muted" id="streakText">Hələ oyun başlamayıb.</p>
-            <div class="progress mt"><i id="streakBar" style="width:0%"></i></div>
+            <h3>Xal qaydası</h3>
+            <ul class="rule-list">
+              <li>Doğru cavab — <b>10 xal</b>.</li>
+              <li>Səhv cavab — <b>0 xal</b>, tur davam edir.</li>
+              <li>Cavabdan sonra sualın izahı göstərilir.</li>
+            </ul>
+            <p class="small dim">Tur bitəndə ümumi xal klub cədvəlinə yazılır.</p>
           </section>
+
           <section class="card">
             <h3>Digər oyunlar</h3>
-            <div class="row" id="otherGames"></div>
+            <div class="row" data-frame-others></div>
           </section>
         </aside>
       </div>
@@ -49,6 +66,6 @@
 </div>
 <script src="assets/js/data.js"></script>
 <script src="assets/js/app.js"></script>
-<script src="assets/js/quiz.js"></script>
+<script src="assets/js/gameframe.js"></script>
 </body>
 </html>

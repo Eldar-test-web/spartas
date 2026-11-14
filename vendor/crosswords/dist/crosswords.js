@@ -135,8 +135,8 @@ function Qr(e, n) {
   }
   let t = {
     wrapper: e.createElement("div"),
-    acrossClues: r("crossword-across-clues", "Across"),
-    downClues: r("crossword-down-clues", "Down")
+    acrossClues: r("crossword-across-clues", "Üfüqi"),
+    downClues: r("crossword-down-clues", "Şaquli")
   };
   return Le(t.wrapper, ["crosswords-js", "crossword-clues"]), i(n, t.acrossClues, n.model.acrossClues), t.wrapper.appendChild(t.acrossClues), i(n, t.downClues, n.model.downClues), t.wrapper.appendChild(t.downClues), n.addEventsListener(["clueSelected"], (o) => {
     for (const u of t.acrossClues.children)

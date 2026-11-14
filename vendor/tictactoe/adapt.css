@@ -1,0 +1,78 @@
+/* SPARTANS uyğunlaşdırması — tic-tac-toe (ramazancetinkaya, MIT).
+   upstream styles.css-in dəyişənləri üzərinə yazılır: rənglər #0D6940 + #6FFFBE,
+   şriftlər assets/css/frame.css-dən (Oswald + Bitter). */
+
+:root {
+    --clr-dark-navy: #04120c;
+    --clr-semi-dark-navy: #0a221a;
+    --clr-silver: #9cbdaa;
+    --clr-silver-hover: #eafff5;
+    --clr-light-blue: #6fffbe;          /* X işarəsi */
+    --clr-light-blue-hover: #9cffd3;
+    --clr-light-yellow: #1f9c68;        /* O işarəsi */
+    --clr-light-yellow-hover: #2fb97f;
+
+    --font-family: var(--f-display), "Arial Narrow", sans-serif;
+    --shadow-sm: 0 3px 0 rgba(0, 0, 0, .35);
+    --shadow-md: 0 6px 0 rgba(0, 0, 0, .35);
+}
+
+html { background: #04120c; }
+body { background-color: #04120c; padding: 22px 18px; }
+
+h1, h2, h3, h4 { font-family: var(--f-display); letter-spacing: .08em; }
+p, .thinking-indicator { font-family: var(--f-body); }
+
+/* --- yerli SVG işarələr (upstream icon font əvəzinə) --- */
+.icon-logo svg, .picker-toggle svg, .turn-indicator svg, .btn-restart svg,
+.board-cell i svg, .icon-winner svg {
+    display: block; width: 1em; height: 1em;
+}
+.icon-logo i, .turn-indicator i, .board-cell i, .icon-winner { display: grid; place-items: center; }
+.icon-logo i + i { color: var(--clr-light-yellow); }
+.turn-indicator i { font-size: 1.5rem; color: var(--clr-light-blue); }
+
+/* --- hissələr --- */
+/* başlanğıc menyusu: iki kart yan-yana, lövhə iframe-də görünən qalsın */
+.start-menu { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; align-items: start; max-width: 660px; margin: 0 auto; }
+.start-menu .icon-logo, .start-menu #new-game-btn { grid-column: 1 / -1; justify-self: center; }
+.picker-card, .difficulty-card { padding: 16px 14px; margin: 0; }
+.picker-card h4, .difficulty-card h4 { font-size: 1rem; margin-bottom: 12px; }
+.difficulty-buttons { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+.difficulty-buttons .btn { padding: 9px 4px; font-size: .74rem; }
+.picker-toggle button { padding: 10px 0; }
+
+.picker-card, .difficulty-card { border-radius: 4px; border: 1px solid rgba(147, 179, 163, .18); }
+.picker-card h4, .difficulty-card h4 { color: #eafff5; font-size: 1.15rem; font-weight: 500; }
+.picker-card p { color: var(--clr-silver); font-size: .85rem; letter-spacing: .14em; }
+.picker-toggle, .turn-indicator, .game-header .btn-restart { border-radius: 4px; }
+.picker-toggle button { color: var(--clr-silver); }
+.picker-toggle button.active { background-color: var(--clr-light-yellow); color: #04120c; }
+.picker-toggle button:not(.active):hover { background-color: rgba(111, 255, 190, .08); color: #eafff5; }
+
+button, .btn { border-radius: 3px; letter-spacing: .1em; text-transform: uppercase; }
+.difficulty-buttons .btn { background-color: #0a221a; color: var(--clr-silver); border: 1px solid rgba(147, 179, 163, .28); }
+.difficulty-buttons .btn.active { background-color: var(--clr-light-blue); color: #04120c; border-color: var(--clr-light-blue); }
+.difficulty-buttons .btn:not(.active):hover { background-color: #0d2f23; color: #eafff5; }
+.btn-yellow { box-shadow: 0 3px 0 rgba(0, 0, 0, .4); }
+
+.board-cell { border-radius: 4px; border: 1px solid rgba(147, 179, 163, .14); }
+.board-cell i { font-size: 4.2rem; }
+
+/* upstream-in hover rəqəmləri mavi/sarı idi — klub palitrasına dəyişildi */
+.board-cell.x-hover:not(.x):not(.o):hover {
+    background-image: url("data:image/svg+xml,%3csvg width='64' height='64' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M15.002 1.147 32 18.145 48.998 1.147a3 3 0 0 1 4.243 0l9.612 9.612a3 3 0 0 1 0 4.243L45.855 32l16.998 16.998a3 3 0 0 1 0 4.243l-9.612 9.612a3 3 0 0 1-4.243 0L32 45.855 15.002 62.853a3 3 0 0 1-4.243 0L1.147 53.24a3 3 0 0 1 0-4.243L18.145 32 1.147 15.002a3 3 0 0 1 0-4.243l9.612-9.612a3 3 0 0 1 4.243 0Z' fill='%236fffbe' fill-rule='evenodd' opacity='0.22'/%3e%3c/svg%3e");
+}
+.board-cell.o-hover:not(.x):not(.o):hover {
+    background-image: url("data:image/svg+xml,%3csvg width='64' height='64' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M32 0c17.673 0 32 14.327 32 32 0 17.673-14.327 32-32 32C14.327 64 0 49.673 0 32 0 14.327 14.327 0 32 0Zm0 18.286c-7.564 0-13.714 6.15-13.714 13.714 0 7.564 6.15 13.714 13.714 13.714 7.564 0 13.714-6.15 13.714-13.714 0-7.564-6.15-13.714-13.714-13.714zm0 22.857c-5.043 0-9.143-4.1-9.143-9.143s4.1-9.143 9.143-9.143 9.143 4.1 9.143 9.143-4.1 9.143-9.143 9.143z' fill='%231f9c68' fill-rule='evenodd' opacity='0.3'/%3e%3c/svg%3e");
+}
+
+.game-footer .score-card { border: 1px solid rgba(147, 179, 163, .18); border-radius: 4px; }
+.score-card p { font-family: var(--f-display); letter-spacing: .12em; font-size: .78rem; }
+.score-card .score { font-family: var(--f-display); font-weight: 600; }
+
+.modal-overlay { backdrop-filter: blur(4px); }
+.modal-content { background-color: #08221a; border: 1px solid rgba(111, 255, 190, .28); border-radius: 4px; }
+.modal-content h2, #modal-result-text { font-family: var(--f-display); letter-spacing: .1em; }
+.x-win-color { color: var(--clr-light-blue) !important; }
+.o-win-color { color: #5fd3a0 !important; }

@@ -1,0 +1,75 @@
+/* vendor/ iframe səhifələri üçün ortaq təməl — eyni şrift, eyni rəqəm, eyni səthlər.
+   Hər oyun səhifəsi BUNU, sonra öz adapt.css-ini yükləyir. */
+
+@font-face { font-family: "Oswald"; font-style: normal; font-weight: 500; font-display: swap; src: url("../fonts/Oswald-500.woff2") format("woff2"); }
+@font-face { font-family: "Oswald"; font-style: normal; font-weight: 600; font-display: swap; src: url("../fonts/Oswald-600.woff2") format("woff2"); }
+@font-face { font-family: "Oswald"; font-style: normal; font-weight: 700; font-display: swap; src: url("../fonts/Oswald-700.woff2") format("woff2"); }
+@font-face { font-family: "Bitter"; font-style: normal; font-weight: 400; font-display: swap; src: url("../fonts/Bitter-400.woff2") format("woff2"); }
+@font-face { font-family: "Bitter"; font-style: normal; font-weight: 600; font-display: swap; src: url("../fonts/Bitter-600.woff2") format("woff2"); }
+
+:root {
+  --deep: #0d6940;
+  --deep-2: #0a5434;
+  --mint: #6fffbe;
+  --mint-ink: #04140d;
+  --bg: #03110b;
+  --panel: #081b14;
+  --panel-2: #0a221a;
+  --line: rgba(147, 179, 163, .16);
+  --line-2: rgba(147, 179, 163, .32);
+  --line-mint: rgba(111, 255, 190, .38);
+  --text: #eafff5;
+  --stone: #9cbdaa;
+  --stone-dim: #62836f;
+  --warn: #e0c15a;
+  --bad: #e4796a;
+  --radius: 6px;
+  --radius-sm: 4px;
+  --f-display: "Oswald", "Arial Narrow", sans-serif;
+  --f-body: "Bitter", Georgia, serif;
+}
+
+html { color-scheme: dark; }
+
+body {
+  margin: 0; padding: 20px;
+  background: var(--bg); color: var(--text);
+  font-family: var(--f-body); font-size: 15.5px; line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--f-display); font-weight: 600; margin: 0 0 10px;
+  letter-spacing: .04em; text-transform: uppercase; line-height: 1.2;
+}
+h1 { font-size: 26px; font-weight: 700; }
+h2 { font-size: 18px; }
+h3 { font-size: 15px; color: var(--stone); }
+p { margin: 0 0 12px; }
+a { color: var(--mint); }
+
+button, .btn, [class*="button"] {
+  font-family: var(--f-display); font-weight: 500; font-size: 13px;
+  letter-spacing: .1em; text-transform: uppercase;
+  color: var(--text); background: var(--panel-2);
+  border: 1px solid var(--line-2); border-radius: var(--radius-sm);
+  padding: 9px 14px; cursor: pointer;
+  transition: background .14s, border-color .14s, color .14s;
+}
+button:hover, .btn:hover, [class*="button"]:hover { background: rgba(147, 179, 163, .1); border-color: var(--line-mint); text-decoration: none; }
+button:active { transform: translateY(1px); }
+button[disabled] { opacity: .4; cursor: not-allowed; }
+
+input, select, textarea {
+  font-family: var(--f-body); font-size: 15px; color: var(--text);
+  background: var(--panel); border: 1px solid var(--line-2); border-radius: var(--radius-sm);
+  padding: 8px 10px;
+}
+input:focus, select:focus, textarea:focus { border-color: var(--line-mint); outline: none; }
+
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--line-2); }
+::-webkit-scrollbar-thumb:hover { background: var(--deep); }
+
+::selection { background: var(--deep); color: var(--mint); }

@@ -5,18 +5,18 @@ const BADGES = {
   "yuz-xal": { t: "100 xal", i: "trophy", d: "Ümumi 100 xala çat" },
   "bes-yuz": { t: "500 xal", i: "medal", d: "Ümumi 500 xala çat" },
   "on-tur": { t: "10 tur", i: "flag", d: "10 oyun nəticəsi topla" },
-  "olcu-usta": { t: "Ölçü ustası", i: "ruler", d: "Ölçü Tahminində 400+ xal al" },
+  "olcu-usta": { t: "Ölçü ustası", i: "ruler", d: "Ölçü Tahminində 80+ xal al" },
   "viktorina-usta": { t: "Viktorina ustası", i: "scroll", d: "Klassik Suallarda 80+ xal al" },
-  "krossvord-bitdi": { t: "Krossvordçu", i: "cross", d: "Krossvord şəbəkəsini aç" }
+  "krossvord-bitdi": { t: "Krossvordçu", i: "cross", d: "Krossvord şəbəkəsini tamamla" }
 };
 
 const GAME_SCORE_RULES = [
   ["İntellektual Wordle", "Hər təsadə cəhd azaldıqca xal artır: 6 cəhdlə tapılan söz 10, birinci cəhdlə tapılan 60 xal."],
-  ["Krossvord", "Tamamlanmış şəbəkə 100 xaldan başlayır; açıya köməkçi hər hücrə və hər saniyə xalı azaldır."],
-  ["Ölçü Tahmini", "Hər raundda ən çox 100 xal. Real hündürlüyə nə qədər yaxın olsan, bir o qədər çox."],
+  ["Krossvord", "Tamamlanmış şəbəkə 100 xaldan başlayır: açılan hər hücrə −10, işlədilən hər dəqiqə −1 (ən çoxu −30)."],
+  ["Ölçü Tahmini", "5 raund, hər raundda ən çoxu 100 xal. Klub cədvəlinə orta nəticə yazılır (ən çoxu 100)."],
   ["Fermi Tahmini", "Hər doğru variant 10 xal — 8 sualdən ən çoxu 80 xal."],
-  ["Mini Oyunlar", "Oyundan-asılı xal: 2048, yaddaş, tic-tac-toe və tetris nəticələri ayrıca sayılır."],
-  ["Klassik Suallar", "Cavab başına xal, seriya bonusu ilə. 10 sualdan ən çoxu 100 xal."]
+  ["Mini Oyunlar", "2048: xalın onda biri · Tetris: hər sıra 10 xal · Yaddaş: 100-ə qədər · Dos-crossa: qələbə 30 xal."],
+  ["Klassik Suallar", "Doğru cavab başına 10 xal — 10 sualdan ən çoxu 100 xal."]
 ];
 
 /* ---------- oyunlar.html ---------- */

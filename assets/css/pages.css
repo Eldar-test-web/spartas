@@ -16,6 +16,16 @@
 }
 .rule-list li { padding-left: 16px; border-left: 2px solid var(--deep); }
 .rule-list li b { color: var(--text); font-family: var(--f-display); font-weight: 500; letter-spacing: .02em; }
+
+/* Oyun rəng izahı (wordle plitələri, vəsgöstərici lövhələri) */
+.k-good, .k-mid, .k-bad {
+  display: inline-flex; align-items: center; gap: 7px; color: var(--text);
+  font-family: var(--f-display); font-weight: 500; letter-spacing: .04em;
+}
+.k-good::before, .k-mid::before, .k-bad::before { content: ""; width: 11px; height: 11px; border: 1px solid var(--line-2); }
+.k-good::before { background: var(--mint); border-color: var(--mint); }
+.k-mid::before { background: var(--deep); border-color: var(--deep); }
+.k-bad::before { background: #12251d; }
 .team-list li {
   display: flex; justify-content: space-between; gap: 14px; padding: 9px 0;
   border-bottom: 1px solid var(--line); color: var(--stone); font-size: 14.5px;
@@ -85,6 +95,6 @@ table.tbl .progress { display: block; min-width: 90px; }
 }
 
 @media (max-width: 640px) {
-  .grid.g2, .grid.g3, .grid.g4 { grid-template-columns: 1fr; }
+  .grid.g2, .grid.g4 { grid-template-columns: 1fr; }
   .stats-row .stat { border-right: 0; }
 }

@@ -10,12 +10,12 @@ siyahıdır; ətraflı hər qovluqdakı `UPSTREAM.md`-dədir.
 | Oyun | Mənbə | Müəllif | Lisenziya | İstifadə olunan commit | Uyğunlaşdırma vəziyyəti |
 |---|---|---|---|---|---|
 | İntellektual Wordle | [WebDevSimplified/wordle-clone](https://github.com/WebDevSimplified/wordle-clone) | Web Dev Simplified | MIT | `b12c2df422d2393b156600d2536a20f4c824af32` | bitdi — AZ əlifba, 4–8 hərf, lokal söz bazası, xal körpüsü |
-| Krossvord | [dwmkerr/crosswords-js](https://github.com/dwmkerr/crosswords-js) | Dave Kerr və töhfəçilər | MIT | `803d31f548e57f3e34e0cdc45aaa6baccc6ee826` (v0.1.14) | bitdi — AZ əlifba yaması, 26 suallıq Azərbaycan şəbəkəsi |
+| Krossvord | [dwmkerr/crosswords-js](https://github.com/dwmkerr/crosswords-js) | Dave Kerr və töhfəçilər | MIT | `803d31f548e57f3e34e0cdc45aaa6baccc6ee826` (v0.1.14) | bitdi — AZ əlifba yaması, 26 suallıq Azərbaycan şəbəkəsi, `mimetype/version` tələbinə görə yüklənmə xətası düzəldildi |
 | Klassik Suallar (viktorina) | [jamesqquick/Build-A-Quiz-App-With-HTML-CSS-and-JavaScript](https://github.com/jamesqquick/Build-A-Quiz-App-With-HTML-CSS-and-JavaScript) | James Quick | MIT | `ef07bc7c4baa51bad8eb44727895a5dd667e41dc` | bitdi — Open Trivia DB əvəzinə lokal AZ sual bankı, yol və sıralama xətaları düzəldildi |
 | 2048 | [gabrielecirulli/2048](https://github.com/gabrielecirulli/2048) | Gabriele Cirulli | MIT | `478b6ec346e3787f589e4af751378d06ded4cbbc` | bitdi — AZ mətnlər, klub palitrası, xal körpüsü |
 | Tetris | [dionyziz/canvas-tetris](https://github.com/dionyziz/canvas-tetris) | Dionysis Zindros | MIT | upstream-də tag yoxdur; klonlanan ağac | bitdi — AZ interfeys, yaşıl palitra, sətir sayğacı + xal körpüsü |
-| Yaddaş (memory) | [taniarascia/memory](https://github.com/taniarascia/memory) | Tania Rascia | MIT | 2018 buraxılışı | davam edir — **Nintendo sprite qrafikası (`img/*.png`) lisenziyasız olduğu üçün tamamilə silindi**, əvəzinə klubun own SVG ikonları qoyuldu; karışdırma (shuffle) xətası Fisher–Yates ilə düzəldildi |
-| Tic-tac-toe | [ramazancetinkaya/tictactoe](https://github.com/ramazancetinkaya/tictactoe) | Ramazan Çetinkaya | MIT | `main`, 2025-08-29 | davam edir — AZ mətnlər və rəng qatı; bootstrap-icons CDN asılılığı lokal SVG ilə əvəz olunur |
+| Yaddaş (memory) | [taniarascia/memory](https://github.com/taniarascia/memory) | Tania Rascia | MIT | 2018 buraxılışı | bitdi — **Nintendo sprite qrafikası (`img/*.png`) lisenziyasız olduğu üçün tamamilə silindi**, əvəzinə klubun own SVG ikonları qoyuldu; karışdırma (shuffle) xətası Fisher–Yates ilə düzəldildi; xal körpüsü qoşuldu |
+| Tic-tac-toe | [ramazancetinkaya/tictactoe](https://github.com/ramazancetinkaya/tictactoe) | Ramazan Çetinkaya | MIT | `main`, 2025-08-29 | bitdi — AZ mətnlər və rəng qatı; jsdelivr `bootstrap-icons` CDN asılılığı silindi, X/O yerli SVG-dir; xal körpüsü qoşuldu |
 
 ## Klubun öz yazdığı oyunlar
 
@@ -36,6 +36,18 @@ magnitude game", "guess the size of", "size comparison", "bigger or smaller"). O
   `#0D6940` / `#6FFFBE` palitrasına çevrilib.
 - `assets/img/hero-spartan.jpg`: sayt üçün istifadə olunan foto — istinad mənbəyi
   `vendor/` lisenziyalarından asılı deyil, yalnız klub brendinqi üçün emalı edilib.
+
+## Şriftlər və xarici asılılıqlar
+
+- **Oswald** (500/600/700) və **Bitter** (400/600) — `assets/fonts/*.woff2` qovluğunda
+  öz serverimizdə durur, lisenziya: SIL Open Font License (`OFL-Oswald.txt`,
+  `OFL-Bitter.txt`). Google Fonts CDN-i istifadə olunmur.
+- Sayt və bütün `vendor/` oyunları **internetsiz işləyir**: heç bir CDN, heç bir xarici
+  skript, heç bir analitika yoxdur (`grep` ilə yoxlanılır). Tək xarici istinadlar
+  `UPSTREAM.md` / `CREDITS.md` mətnlərindəki mənbə linkləridir.
+- Viktorinanın upstream-dəki "şəxsi rekordlar" ekranı (`highscores.html/.js/.css`) silindi:
+  nəticələr artıq klub cədvəlinə yazıldığı üçün orada `localStorage`-də saxlanılan ikinci,
+  qeyri-iddia olunan rekord siyahısına ehtiyac qalmadı.
 
 ## Rəng palitrası
 

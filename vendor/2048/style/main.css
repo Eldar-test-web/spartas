@@ -1,4 +1,5 @@
-@import url(fonts/clear-sans.css);
+/* SPARTANS: "Clear Sans" @import-u silindi — saytın öz şriftləri (Oswald + Bitter)
+   assets/css/frame.css üzərindən yüklənir, xarici fayl sorğusu buraxılmır. */
 html, body {
   margin: 0;
   padding: 0;

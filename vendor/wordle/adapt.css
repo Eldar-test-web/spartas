@@ -10,10 +10,10 @@
   --text: #e8fff6;
 }
 
-body {
+html, body {
   background: radial-gradient(760px 420px at 50% -8%, rgba(13, 105, 64, .55), transparent 60%), var(--bg);
   color: var(--text);
-  font-family: system-ui, "Segoe UI", Roboto, Arial, sans-serif;
+  font-family: var(--f-body);
   gap: .6em;
 }
 

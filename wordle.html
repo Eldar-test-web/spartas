@@ -10,6 +10,7 @@
 <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
 <link rel="manifest" href="site.webmanifest">
 <link rel="stylesheet" href="assets/css/main.css">
+<link rel="stylesheet" href="assets/css/pages.css">
 </head>
 <body data-page="wordle">
 <a class="skip-link" href="#main">Əsas mətnə keç</a>
@@ -21,47 +22,41 @@
       <div class="page-head">
         <p class="eyebrow">Oyun 01 · Gündəlik</p>
         <h1>İntellektual Wordle</h1>
-        <p class="lead">Sözü tapmaq üçün 6 cəhddən istifadə et. Hər təxmin Azərbaycan əlifbasındakı hərflərdən qurulmalıdır. Rənglər hərfin düzgünlüyünü göstərir.</p>
+        <p class="lead">Sözü tapmaq üçün altı cəhddən istifadə et. Hər təxmin Azərbaycan əlifbasının hərflərindən qurulur; rənglər hərfin yerini göstərir.</p>
       </div>
 
-      <div class="row between" style="align-items:flex-start">
-        <div class="len-tabs" id="lenTabs" role="tablist" aria-label="Sözün uzunluğu"></div>
-        <div class="row">
-          <button class="len-tab is-active" id="modeDaily" type="button">Gündəlik</button>
-          <button class="len-tab" id="modeFree" type="button">Sərbəst</button>
-        </div>
-      </div>
-
-      <div class="grid g3 mt-l" style="grid-template-columns:minmax(0,1fr) 340px;align-items:start">
-        <section class="card">
-          <div class="board" id="board" aria-live="polite"></div>
-          <div class="kbd" id="keyboard"></div>
-          <div class="row between mt">
-            <span class="small dim" id="hint"></span>
-            <div class="row">
-              <button class="btn btn-sm btn-ghost" id="shareBtn" type="button">Nəticəni paylaş</button>
-              <button class="btn btn-sm btn-ghost" id="newBtn" type="button">Yeni oyun</button>
-            </div>
+      <div class="game-layout">
+        <section class="game-frame-card" data-frame data-game="wordle"
+                 data-frame-src="vendor/wordle/index.html" data-frame-controls="len,mode"
+                 data-title="Wordle — söz təxmini">
+          <div class="game-frame-bar">
+            <span class="frame-status" data-frame-status>Yüklənir</span>
+            <div class="row" data-frame-controls></div>
+            <button class="btn btn-sm btn-ghost" type="button" data-frame-restart>Yeni söz</button>
           </div>
+          <div data-frame-slot></div>
         </section>
 
         <aside class="rail">
           <section class="card">
             <h2>Statistika</h2>
-            <div class="grid g3" id="stats"></div>
+            <div class="row" data-frame-stats="4"></div>
+            <p class="small dim" style="margin:14px 0 0">Raqəmlər yalnız bu brauzerdə saxlanılan turlardan hesablanır.</p>
           </section>
+
           <section class="card">
             <h3>Necə oynanır</h3>
-            <p class="small muted">
-              <b style="color:var(--mint)">Yaşıl</b> — hərf düzgündür və düzgün yerdədir.<br>
-              <b style="color:var(--mint)">Tünd yaşıl</b> — hərf sözdə var, amma başqa yerdədir.<br>
-              <b style="color:var(--mint)">Boz</b> — hərf sözdə yoxdur.
-            </p>
-            <p class="small dim">Hər uzunluq üçün ayrıca gündəlik söz verilır. 6 cəhddən sonra söz açılır.</p>
+            <ul class="rule-list">
+              <li><b class="k-good">Yaşıl</b> — hərf sözdədir və düzgün yerdədir.</li>
+              <li><b class="k-mid">Tünd yaşıl</b> — hərf sözdədir, amma başqa yerdədir.</li>
+              <li><b class="k-bad">Boz</b> — hərf sözdə yoxdur.</li>
+            </ul>
+            <p class="small dim">Hər uzunluq üçün ayrıca gündəlik söz verilir. Altı cəhddən sonra söz açılır və tura xal yazılmır.</p>
           </section>
+
           <section class="card">
             <h3>Digər oyunlar</h3>
-            <div class="row" id="otherGames"></div>
+            <div class="row" data-frame-others></div>
           </section>
         </aside>
       </div>
@@ -71,6 +66,6 @@
 </div>
 <script src="assets/js/data.js"></script>
 <script src="assets/js/app.js"></script>
-<script src="assets/js/wordle.js"></script>
+<script src="assets/js/gameframe.js"></script>
 </body>
 </html>

@@ -13,21 +13,29 @@
 html, body {
   background: radial-gradient(620px 420px at 50% -12%, rgba(13, 105, 64, .5), transparent 62%), var(--bg);
   color: var(--text);
-  font-family: system-ui, "Segoe UI", Roboto, Arial, sans-serif;
-  margin: 0; padding: 16px 12px 40px;
+  font-family: var(--f-body);
+  margin: 0; padding: 14px 12px 16px;
 }
+/* HUD lövhənin üstünə, düymə aşağıya: iframe hündürlüyü 820px-də hər şey görünür */
+body { display: flex; flex-direction: column; align-items: center; gap: 12px; }
+.hint { order: 1; }
+#spartans-hud { order: 2; }
+canvas { order: 3; }
+#playbutton { order: 4; }
 
 canvas {
-  display: block; margin: 14px auto 0;
+  display: block; margin: 0;
+  height: min(600px, calc(100vh - 210px)); width: auto;
   border: 1px solid var(--line);
   background: #061a12;
   box-shadow: 0 0 44px rgba(13, 105, 64, .5);
 }
 
 #playbutton {
-  width: 150px; height: 46px; display: block; margin: 14px auto 0;
+  width: 150px; height: 44px; display: block; margin: 0;
   background: var(--deep); color: #eafff5; border: 1px solid var(--line);
-  border-radius: 999px; font-size: 16px; font-weight: 800; cursor: pointer;
+  border-radius: 4px; font-family: var(--f-display); font-size: 14px; font-weight: 600;
+  letter-spacing: .12em; text-transform: uppercase; cursor: pointer;
 }
 #playbutton:hover { background: #12875a; }
 
@@ -35,11 +43,12 @@ canvas {
 .hint b { color: var(--mint); }
 
 #spartans-hud {
-  display: flex; gap: 12px; justify-content: center; margin-top: 12px;
+  display: flex; gap: 10px; justify-content: center; margin: 0;
 }
 #spartans-hud span {
   background: var(--panel); border: 1px solid var(--line); color: var(--mint);
-  border-radius: 999px; padding: 7px 16px; font-size: 13px; font-weight: 700;
+  border-radius: 3px; padding: 6px 14px; font-family: var(--f-display);
+  font-size: 12px; font-weight: 500; letter-spacing: .1em; text-transform: uppercase;
 }
 
 #sp-over {
@@ -49,6 +58,7 @@ canvas {
 #sp-over b { color: var(--mint); font-size: 26px; }
 #sp-over span { color: var(--text); }
 #sp-over button {
-  justify-self: center; background: var(--mint); color: #04120c; border: 0;
-  border-radius: 999px; padding: 10px 22px; font-weight: 800; cursor: pointer;
+  justify-self: center; background: var(--deep); color: #eafff5; border: 1px solid var(--line);
+  border-radius: 4px; padding: 11px 24px; font-family: var(--f-display); font-size: 14px;
+  font-weight: 600; letter-spacing: .12em; text-transform: uppercase; cursor: pointer;
 }

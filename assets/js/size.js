@@ -30,8 +30,11 @@
     azadliq: { w: 40, svg: `<path d="M6 100 L11 70 L33 70 L38 100 Z"/><rect x="15" y="58" width="14" height="13"/>
       <path d="M17 58 L15 26 L30 26 L28 58 Z"/><path d="M25 26 L31 8 L36 10 L30 28 Z"/>
       <path d="M30 2 L38 7 L30 12 Z"/><path d="M11 30 L21 34 L13 46 Z"/>` },
-    bigben: { w: 12, svg: `<rect x="2" y="34" width="10" height="66"/><path d="M0 34 L7 12 L14 34 Z"/>
-      <path d="M4 14 L7 0 L10 14 Z"/><rect x="5" y="40" width="4" height="20"/>` },
+    bigben: { w: 12, svg: `<rect x="0.4" y="94" width="11.7" height="6"/>
+      <rect x="1.9" y="30" width="8.7" height="64"/>
+      <circle cx="6.25" cy="39" r="2.7" fill="#08201a"/>
+      <path d="M1.2 30 L6.25 17 L11.3 30 Z"/><rect x="4.6" y="11" width="3.3" height="6"/>
+      <path d="M4.6 11 L6.25 2.4 L7.9 11 Z"/><rect x="6" y="0" width="0.5" height="3"/>` },
     piramida: { w: 230, svg: `<path d="M0 100 L82 4 L165 100 Z"/><path d="M82 4 L60 100 L0 100 Z" opacity=".55"/>` },
     eyfel: { w: 125, svg: `<path d="M0 100 L9 58 L31 58 L40 100 L31 100 L25 72 L15 72 L9 100 Z"/>
       <rect x="5" y="54" width="30" height="6"/><rect x="10" y="28" width="20" height="5"/>
@@ -63,7 +66,7 @@
   const mToSlider = (m) => Math.round(((Math.log10(m) - LOG_MIN) / (LOG_MAX - LOG_MIN)) * 1000);
 
   function newGame() {
-    const start = SP.dayIndex("size");
+    const start = SP.dayIndex("olcu");
     items = Array.from({ length: ROUNDS }, (_, i) => SP.SIZES[(start + i * 3) % SP.SIZES.length]);
     round = 0;
     results = [];
@@ -156,7 +159,7 @@
     if (round < ROUNDS - 1) { round++; draw(); return; }
     const total = results.reduce((a, b) => a + b, 0);
     const pts = Math.round(total / 5);
-    SP.addResult("size", pts, { total });
+    SP.addResult("olcu", pts, { total });
     el.stage.innerHTML = `<div class="ground"></div><div class="center" style="position:relative;z-index:2;margin:auto">
       <h2 style="color:var(--mint)">${total} / 500 xal</h2>
       <p class="muted small">Komanda cədvəlinə +${pts} xal əlavə olundu.</p>

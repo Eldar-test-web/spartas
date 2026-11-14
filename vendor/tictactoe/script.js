@@ -8,6 +8,11 @@
  *
  * This script manages the entire game logic for a Tic-Tac-Toe game
  * against a multi-difficulty AI opponent.
+ *
+ * SPARTANS uyğunlaşdırması (ramazancetinkaya/tic-tac-toe, MIT):
+ *  1. Bütün mətnlər Azərbaycan dilinə çevrildi.
+ *  2. bootstrap-icons CDN-i silindi — X və O işarələri yerli SVG-dir.
+ *  3. Tur bitəndə nəticə postMessage ilə klub səhifəsinə göndərilir.
  */
 
 // =================================================================================
@@ -39,6 +44,13 @@ const cancelRestartBtn = document.getElementById('cancel-restart-btn');
 const confirmRestartBtn = document.getElementById('confirm-restart-btn');
 const difficultyBtns = document.querySelectorAll('.difficulty-buttons .btn');
 const thinkingIndicator = document.getElementById('thinking-indicator');
+
+/* upstream bootstrap-icons işarələrini əvəz edən yerli SVG-lər */
+const MARK_SVG = {
+    x: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><path d="M5.5 5.5 18.5 18.5M18.5 5.5 5.5 18.5"/></svg>',
+    o: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><circle cx="12" cy="12" r="6.6"/></svg>'
+};
+const mark = (symbol) => MARK_SVG[symbol] || '';
 
 // --- Game State Variables ---
 // These variables track the current state of the game.
@@ -120,8 +132,8 @@ function selectDifficulty(level) {
 function startGame() {
     startMenu.classList.add('hidden');
     gameScreen.classList.remove('hidden');
-    playerScoreLabel.textContent = `${playerSymbol.toUpperCase()} (YOU)`;
-    cpuScoreLabel.textContent = `${cpuSymbol.toUpperCase()} (CPU)`;
+    playerScoreLabel.textContent = `${playerSymbol.toUpperCase()} (SƏN)`;
+    cpuScoreLabel.textContent = `${cpuSymbol.toUpperCase()} (KOMPÜTER)`;
     resetBoard();
 }
 
@@ -136,7 +148,7 @@ function resetBoard() {
         cell.className = 'board-cell'; // Reset classes
         cell.innerHTML = `<i></i>`;
         cell.classList.add(`${playerSymbol}-hover`);
-        cell.setAttribute('aria-label', 'Empty');
+        cell.setAttribute('aria-label', 'Boş');
         cell.setAttribute('tabindex', '0');
     });
     updateTurnIndicator();
@@ -172,8 +184,8 @@ function makeMove(index, symbol) {
 
     const cell = cells[index];
     cell.classList.add(symbol, 'show');
-    cell.innerHTML = `<i class="bi bi-${symbol === 'x' ? 'x-lg' : 'circle'}"></i>`;
-    cell.setAttribute('aria-label', `Cell marked as ${symbol.toUpperCase()}`);
+    cell.innerHTML = `<i>${mark(symbol)}</i>`;
+    cell.setAttribute('aria-label', `Xanalıq: ${symbol.toUpperCase()}`);
     cell.setAttribute('tabindex', '-1');
 
     if (checkWin(symbol)) {
@@ -214,7 +226,7 @@ function endGame(isDraw, winner = null) {
  * Updates the turn indicator icon in the header.
  */
 function updateTurnIndicator() {
-    turnIcon.className = `bi bi-${currentPlayer === 'x' ? 'x-lg' : 'circle'}`;
+    turnIcon.innerHTML = mark(currentPlayer);
 }
 
 /**
@@ -226,18 +238,19 @@ function showResult(isDraw, winner) {
     if (isDraw) {
         scores.tie++;
         modalResultText.textContent = '';
-        modalWinnerAnnouncement.innerHTML = `<h2 class="tie-color">ROUND TIED</h2>`;
+        modalWinnerAnnouncement.innerHTML = `<h2 class="tie-color">HEÇ-HEÇƏ</h2>`;
     } else {
         const winnerIsPlayer = winner === playerSymbol;
         winnerIsPlayer ? scores.player++ : scores.cpu++;
-        modalResultText.textContent = winnerIsPlayer ? 'YOU WON!' : 'OH NO, YOU LOST...';
+        modalResultText.textContent = winnerIsPlayer ? 'QAZANDIN!' : 'UDUZDUN...';
         modalWinnerAnnouncement.innerHTML = `
-            <i class="icon-winner bi bi-${winner === 'x' ? 'x-lg' : 'circle'}"></i>
-            <h2 class="${winner}-win-color">TAKES THE ROUND</h2>`;
+            <i class="icon-winner">${mark(winner)}</i>
+            <h2 class="${winner}-win-color">${winnerIsPlayer ? 'SƏN' : 'KOMPÜTER'} QAZANDI</h2>`;
         modalWinnerAnnouncement.querySelector('.icon-winner').style.color = 
             winner === 'x' ? 'var(--clr-light-blue)' : 'var(--clr-light-yellow)';
     }
     updateScoreboard();
+    reportRound(isDraw, winner);
     showModal(resultModal);
 }
 
@@ -248,6 +261,21 @@ function updateScoreboard() {
     playerScoreEl.textContent = scores.player;
     tieScoreEl.textContent = scores.tie;
     cpuScoreEl.textContent = scores.cpu;
+}
+
+/**
+ * Turun nəticəsini klub xal cədvəlinə ötürür (qələbə 30, heç-heçə 10 xal).
+ */
+function reportRound(isDraw, winner) {
+    const won = !isDraw && winner === playerSymbol;
+    const points = won ? 30 : (isDraw ? 10 : 0);
+    try {
+        window.parent.postMessage(
+            { type: 'spartans:result', game: 'tictactoe', won, points, difficulty,
+              score: `${scores.player}-${scores.cpu}` },
+            '*'
+        );
+    } catch (_) { /* birbaşa açılanda səssiz */ }
 }
 
 const showModal = (modal) => modal.classList.add('show');

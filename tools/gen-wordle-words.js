@@ -11,8 +11,13 @@ ctx.window = ctx;
 vm.createContext(ctx);
 vm.runInContext(src, ctx);
 
+const AZ = /^[abcçdeəfgğhxıijkqlmnoöprsştuüvyz]$/;
 const byLen = {};
-for (const [len, list] of Object.entries(ctx.SP.WORDS)) byLen[len] = list.map((w) => w.toLowerCase());
+for (const [len, list] of Object.entries(ctx.SP.WORDS)) {
+  byLen[len] = list.map((w) => w.toLocaleLowerCase("az"));
+  const bad = byLen[len].filter((w) => ![...w].every((c) => AZ.test(c)));
+  if (bad.length) throw new Error(`len ${len}: klaviaturada olmayan hərf -> ${bad.join(", ")}`);
+}
 
 const out = `/* Azərbaycan dilinin söz bazası — tools/gen-wordle-words.js ilə avtomatik yaradılıb.
    Mənbə: assets/js/data.js (SP.WORDS). Aşağı registrdə saxlanılır, çünki

@@ -47,6 +47,16 @@ const REPLACEMENTS = [
     name: "keypress registr çevirisi",
     from: /const \[l, t\] = \[r\.cell\(i\.target\), i\.key\], \[o, u\] = \[\r?\n\s*t\.toLowerCase\(\),\r?\n\s*t\.toUpperCase\(\)\r?\n\s*\];/,
     to: "const [l, t] = [r.cell(i.target), i.key], [o, u] = [azLower(t), azUpper(t)];"
+  },
+  {
+    name: 'açmaz başlıqları ("Across"/"Down" → "Üfüqi"/"Şaquli")',
+    from: 'r("crossword-across-clues", "Across")',
+    to: 'r("crossword-across-clues", "Üfüqi")'
+  },
+  {
+    name: 'açmaz başlıqları ("Across"/"Down" → "Üfüqi"/"Şaquli")',
+    from: 'r("crossword-down-clues", "Down")',
+    to: 'r("crossword-down-clues", "Şaquli")'
   }
 ];
 

@@ -4,12 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Mini Oyunlar — SPARTANS</title>
-<meta name="description" content="Dörd qısa oyun: yaddaş, zər, reaksiya və tapmaca. Hər tur 1-2 dəqiqə, nəticə klub cədvəlinə yazılır.">
+<meta name="description" content="Dörd qısa oyun: 2048, Tetris, Yaddaş və Dos-crossa. Hər tur 1-2 dəqiqə, nəticə klub cədvəlinə yazılır.">
 <meta name="theme-color" content="#0D6940">
 <link rel="icon" href="assets/img/favicon.png" sizes="48x48" type="image/png">
 <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
 <link rel="manifest" href="site.webmanifest">
 <link rel="stylesheet" href="assets/css/main.css">
+<link rel="stylesheet" href="assets/css/pages.css">
 </head>
 <body data-page="mini">
 <a class="skip-link" href="#main">Əsas mətnə keç</a>
@@ -21,31 +22,46 @@
       <div class="page-head">
         <p class="eyebrow">Oyun 05 · Qısa turlar</p>
         <h1>Mini Oyunlar</h1>
-        <p class="lead">Dörd qısa oyun — yaddaş, zər, reaksiya və tapmaca. Hər birinin nəticəsi klub xalına çevrilir.</p>
+        <p class="lead">Dörd qısa oyun — rəqəmləri birləşdir, blokları düşür, cütləri tap və rəqibi məğlub et. Hər birinin nəticəsi klub xalına çevrilir.</p>
       </div>
 
-      <div class="len-tabs" id="miniTabs" style="justify-content:flex-start;margin-bottom:18px"></div>
-
-      <div class="grid" style="grid-template-columns:minmax(0,1fr) 320px;align-items:start">
-        <section class="card" id="miniPanel"></section>
+      <div class="game-layout">
+        <section class="game-frame-card" data-frame data-game="mini"
+                 data-frame-size="tall" data-title="Mini oyunlar"
+                 data-frame-tabs='[
+                   {"src":"vendor/2048/index.html","label":"2048"},
+                   {"src":"vendor/tetris/index.html","label":"Tetris"},
+                   {"src":"vendor/memory/index.html","label":"Yaddaş"},
+                   {"src":"vendor/tictactoe/index.html","label":"Dos-crossa"}
+                 ]'>
+          <div class="game-frame-bar">
+            <span class="frame-status" data-frame-status>Yüklənir</span>
+            <div class="row" data-frame-controls></div>
+            <button class="btn btn-sm btn-ghost" type="button" data-frame-restart>Yeni tur</button>
+          </div>
+          <div data-frame-slot></div>
+        </section>
 
         <aside class="rail">
           <section class="card">
-            <h2>Tur nəticəsi</h2>
-            <div class="grid g2" id="miniStats"></div>
+            <h2>Statistika</h2>
+            <div class="row" data-frame-stats="5"></div>
+            <p class="small dim" style="margin:14px 0 0">Bütün mini oyunların nəticələri ortak sayılır.</p>
           </section>
+
           <section class="card">
-            <h3>Qısa qaydalar</h3>
-            <ul class="small muted" style="padding-left:18px;margin:0;line-height:1.9">
-              <li><b>Yaddaş:</b> 8 cüt simvol, minimum gediş = 8 xal · hər əlavə gediş −1.</li>
-              <li><b>Zər:</b> iki zərin cəmi 7-dən böyükdür, bərabərdir, yoxsa kiçikdir? 10 tur.</li>
-              <li><b>Reaksiya:</b> yaşıl rəngi gözlə, vurun. 5 cəhdin ortalaması qiymətləndirilir.</li>
-              <li><b>Tapmaca:</b> 5 tapmaca, cavabı yaz. Hər doğru +20 xal.</li>
+            <h3>Xal qaydası</h3>
+            <ul class="rule-list">
+              <li><b>2048:</b> topladığın xalın onda biri; 2048 plitəsini açan tur minimum <b>60 xal</b>.</li>
+              <li><b>Tetris:</b> silinən hər sıra <b>10 xal</b>.</li>
+              <li><b>Yaddaş:</b> 12 cüt — 12 gedişdə bitsə <b>100 xal</b>, hər əlavə gediş −2.</li>
+              <li><b>Dos-crossa:</b> qələbə <b>30</b>, heç-heçə <b>10</b>, məğlubiyyət 0 xal.</li>
             </ul>
           </section>
+
           <section class="card">
             <h3>Digər oyunlar</h3>
-            <div class="row" id="otherGames"></div>
+            <div class="row" data-frame-others></div>
           </section>
         </aside>
       </div>
@@ -55,6 +71,6 @@
 </div>
 <script src="assets/js/data.js"></script>
 <script src="assets/js/app.js"></script>
-<script src="assets/js/mini.js"></script>
+<script src="assets/js/gameframe.js"></script>
 </body>
 </html>

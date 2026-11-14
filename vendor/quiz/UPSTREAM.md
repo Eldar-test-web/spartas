@@ -14,8 +14,11 @@
 1. **Mütləq yollar** — upstream `window.location.assign('/end.html')`, `href="/game.html"`,
    `assign('/')` kimi kök-yollardan istifadə edirdi. Layiq qovluğunda (məs.
    `/spartas/vendor/quiz/`) bu əlaqələr 404 verirdi. Bütün yollar nisbiyə çevrildi.
-2. **Sıralama xətası** — `end.js`-də `highScores.sort((a,b) => b.score - a.score)`
-   `score` sətr (string) olduğu üçün "100" < "20" nəticəsi verirdi. `Number()` ilə düzəldildi.
+2. **Rekord ekranı ləğv edildi** — upstream nəticə səhifəsində istifadəçidən ad
+   sorulur və `localStorage`-də "şəxsi rekordlar" saxlanılırdı. Nəticələr artıq
+   klub cədvəlinə (`postMessage` → `SP.addResult`) yazıldığı üçün ad forması və
+   `highscores.html` / `highscores.js` / `highscores.css` silindi, `index.html`-dəki
+   "Rekordlar" düyməsi götürüldü.
 3. **Sabit uyğunsuzluğu** — `MAX_QUESTIONS = 3` idi, amma API 10 sual gətirirdi;
    proqres zolağı da buna görə səhv dolurdu. `?n=` parametri (3–20) əlavə edildi.
 4. **Sözdüzəldi** — `availableQuesions` → `availableQuestions`.
@@ -28,6 +31,8 @@
 7. **Kateqoriya seçimi** — `index.html`-də kateqoriya + sual sayı seçimi, `?cat=` ilə ötürülür.
 8. **Dil** — bütün interfeys mətnləri Azərbaycan dilinə çevrildi.
 9. **Xal körpüsü** — tur bitəndə nəticə `postMessage` ilə ana səhifəyə göndərilir.
+   `end.html` yalnız `mostRecentScore`-u göstərir (xal iki dəfə yazılmasın) və
+   "Yenidən oyna" linki seçilmiş kateqoriya/sual sayını (`?cat=&n=`) saxlayır.
 10. **Rəng** — `adapt.css` upstream-in `app.css`/`game.css` üstünə yazılır:
     `#0D6940` + `#6FFFBE`.
 

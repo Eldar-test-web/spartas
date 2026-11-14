@@ -14,16 +14,13 @@ const DEFAULTS = {
   user: null,
   points: 0,
   history: [],
-  stats: { wordle: {}, quiz: 0, fermi: 0, size: 0, cross: 0, mini: 0 },
-  wordle: {},
-  crossword: null,
   badges: []
 };
 
 SP.load = () => {
   try {
     const raw = JSON.parse(localStorage.getItem(KEY) || "{}");
-    return { ...structuredClone(DEFAULTS), ...raw, stats: { ...DEFAULTS.stats, ...(raw.stats || {}) } };
+    return { ...structuredClone(DEFAULTS), ...raw };
   } catch {
     return structuredClone(DEFAULTS);
   }
@@ -40,15 +37,16 @@ SP.addResult = (game, score, meta = {}) => {
   return st;
 };
 
+/* Nəticə açarları SP.GAMES-dəki `key` dəyərləridir: wordle, krossvord, olcu, fermi, mini, viktorina. */
 SP.badgesFor = (st) => {
   const b = [];
   if (st.history.some((h) => h.game === "wordle")) b.push("wordle-ilk");
   if (st.points >= 100) b.push("yuz-xal");
   if (st.points >= 500) b.push("bes-yuz");
   if (st.history.length >= 10) b.push("on-tur");
-  if (st.history.some((h) => h.game === "size" && h.score >= 400)) b.push("olcu-usta");
-  if (st.history.some((h) => h.game === "quiz" && h.score >= 80)) b.push("viktorina-usta");
-  if (st.history.some((h) => h.game === "cross" && h.score >= 100)) b.push("krossvord-bitdi");
+  if (st.history.some((h) => h.game === "olcu" && h.score >= 80)) b.push("olcu-usta");
+  if (st.history.some((h) => h.game === "viktorina" && h.score >= 80)) b.push("viktorina-usta");
+  if (st.history.some((h) => h.game === "krossvord")) b.push("krossvord-bitdi");
   return b;
 };
 

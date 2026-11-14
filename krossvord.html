@@ -4,12 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Krossvord — SPARTANS</title>
-<meta name="description" content="SPARTANS krossvord: 26 şaquli və üfüqi sual, 17×17 şəbəkə. Azərbaycan dilində klassik krossvord oyunu.">
+<meta name="description" content="Azərbaycan dilində klassik krossvord şəbəkəsi: şaquli və üfüqi suallar, xəta yoxlaması və tamamlanma xalı.">
 <meta name="theme-color" content="#0D6940">
 <link rel="icon" href="assets/img/favicon.png" sizes="48x48" type="image/png">
 <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
 <link rel="manifest" href="site.webmanifest">
 <link rel="stylesheet" href="assets/css/main.css">
+<link rel="stylesheet" href="assets/css/pages.css">
 </head>
 <body data-page="krossvord">
 <a class="skip-link" href="#main">Əsas mətnə keç</a>
@@ -18,37 +19,44 @@
   <div class="main-col">
     <header class="topbar" id="topbar"></header>
     <main id="main">
-      <div class="page-head row between" style="align-items:flex-end">
-        <div>
-          <p class="eyebrow">Oyun 02 · Şəbəkə</p>
-          <h1>Krossvord</h1>
-          <p class="lead">26 sual, 17×17 şəbəkə. Hər hücrəyə bir hərf yaz — şaquli və üfüqi sözlər kəsişir.</p>
-        </div>
-        <div class="row" style="gap:18px">
-          <div class="stat"><b id="timeOut">0:00</b><span>vaxt</span></div>
-          <div class="stat"><b id="doneOut">0/26</b><span>tapılıb</span></div>
-        </div>
+      <div class="page-head">
+        <p class="eyebrow">Oyun 02 · Şəbəkə</p>
+        <h1>Krossvord</h1>
+        <p class="lead">Şaquli və üfüqi suallardan ibarət klassik şəbəkə. Hücrəyə kliklə, hərf yaz — açıq kömək xalı hər dəfə azalır.</p>
       </div>
 
-      <div class="cc-wrap">
-        <section class="card">
-          <div class="cc-scroll"><div class="cc-grid" id="grid" role="grid" aria-label="Krossvord şəbəkəsi"></div></div>
-          <div class="row mt">
-            <button class="btn btn-sm btn-primary" id="checkBtn" type="button">Yoxla</button>
-            <button class="btn btn-sm btn-ghost" id="hintBtn" type="button">Bir hərf aç (−5 xal)</button>
-            <button class="btn btn-sm btn-ghost" id="clearBtn" type="button">Təmizlə</button>
-            <span class="small dim" id="activeClue"></span>
+      <div class="game-layout game-layout--wide">
+        <section class="game-frame-card" data-frame data-game="krossvord"
+                 data-frame-src="vendor/crosswords/index.html"
+                 data-title="Krossvord şəbəkəsi">
+          <div class="game-frame-bar">
+            <span class="frame-status" data-frame-status>Yüklənir</span>
+            <div class="row" data-frame-controls></div>
+            <button class="btn btn-sm btn-ghost" type="button" data-frame-restart>Yenidən başla</button>
           </div>
+          <div data-frame-slot></div>
         </section>
 
         <aside class="rail">
           <section class="card">
-            <div class="row between"><h2 style="margin:0">Üfüqi</h2><span class="chip chip-neutral" id="acrossCount"></span></div>
-            <div class="cc-list" id="acrossList"></div>
+            <h2>Statistika</h2>
+            <div class="row" data-frame-stats="4"></div>
+            <p class="small dim" style="margin:14px 0 0">Şəbəkə bir dəfə tamamlananda nəticə klub cədvəlinə yazılır.</p>
           </section>
+
           <section class="card">
-            <div class="row between"><h2 style="margin:0">Şaquli</h2><span class="chip chip-neutral" id="downCount"></span></div>
-            <div class="cc-list" id="downList"></div>
+            <h3>Xal qaydası</h3>
+            <ul class="rule-list">
+              <li>Tamamlanmış şəbəkə <b>100</b> xaldan başlayır.</li>
+              <li>Hər açılmış hərf <b>−10</b> xal.</li>
+              <li>Hər dəqiqə <b>−1</b> xal, ən çoxu −30.</li>
+              <li>Alt hədd: <b>40</b> xal.</li>
+            </ul>
+          </section>
+
+          <section class="card">
+            <h3>Digər oyunlar</h3>
+            <div class="row" data-frame-others></div>
           </section>
         </aside>
       </div>
@@ -57,8 +65,7 @@
   </div>
 </div>
 <script src="assets/js/data.js"></script>
-<script src="assets/js/crossword-data.js"></script>
 <script src="assets/js/app.js"></script>
-<script src="assets/js/crossword.js"></script>
+<script src="assets/js/gameframe.js"></script>
 </body>
 </html>
