@@ -1,16 +1,17 @@
 /* Ölçü Tahmini (Size It Up formatı)
-   - hər siluet həqiqi miqyasda çəkilir: viewBox-də 100 vahid = obyektin hündürlüyü,
-     en isə vb/100 * hündürlük kimi avtomatik çıxır (x0 = çəkimin sol boşluğu)
-   - slider təxminin "kölgə" nüsxəsini canlı böyüdür: obyektin eyni forması,
-     yalnız təxminə bərabər hündürlükdə. Beləliklə hər hərəkət görünür.
-   - kamera obyekt və kölgəni birlikdə çərçivəyə salır */
+   - cismin özü təxminindir: çubuğu sürüşdürəndə (və ya səhnəyə toxunanda)
+     siluet real miqyasda böyüyür-kiçilir, şkala isə yerdəyişmir
+   - çərçivə raund üçün sabitdir: tavan = real hündürlüyün 2,2 qatı, yəni
+     sıfır xal həddi. Cisim tavana çatanda artıq heç nə almırsan.
+   - təsdiqdən sonra siluet real hündürlüyünə animasiya ilə qayıdır */
 (() => {
   const SHAPES = {
     fil: { x0: 9, vb: 163, svg: `<ellipse cx="78" cy="52" rx="52" ry="28"/><ellipse cx="140" cy="60" rx="26" ry="24"/>
       <path d="M158 66 q17 7 14 32 l-9 0 q2-21 -9-26 z"/><ellipse cx="126" cy="56" rx="15" ry="19"/>
       <rect x="40" y="72" width="17" height="28"/><rect x="64" y="74" width="17" height="26"/>
       <rect x="102" y="74" width="17" height="26"/><rect x="126" y="72" width="15" height="28"/>
-      <path d="M26 50 q-13 -5 -17 5 l15 6 z"/><rect x="150" y="82" width="4" height="13"/>` },
+      <path d="M31 47 q-10 9 -11 21 l3 1 q2-11 11-19 z"/><path d="M20 67 l4.5 12 l-7.5 -2 z"/>
+      <rect x="150" y="82" width="4" height="13"/>` },
     avtobus: { vb: 246, svg: `<rect x="4" y="2" width="242" height="82" rx="12"/><rect x="0" y="14" width="8" height="52" rx="4"/>
       <circle cx="52" cy="90" r="12"/><circle cx="198" cy="90" r="12"/><rect x="60" y="84" width="130" height="8"/>` },
     zurafe: { x0: 4, vb: 77, svg: `<ellipse cx="30" cy="62" rx="26" ry="16"/><rect x="12" y="72" width="6" height="28"/>
@@ -20,8 +21,8 @@
     teyyare: { x0: 14, vb: 348, svg: `<rect x="14" y="66" width="336" height="26" rx="13"/><path d="M18 0 L44 66 L66 66 L34 6 Z"/>
       <path d="M150 74 L214 96 L172 96 L118 78 Z"/><rect x="126" y="88" width="72" height="11" rx="5"/>
       <path d="M40 70 L74 84 L44 88 L28 76 Z"/><ellipse cx="348" cy="79" rx="14" ry="13"/>` },
-    sfinqs: { vb: 365, svg: `<path d="M0 100 L0 72 Q46 56 96 58 L296 58 Q342 60 365 74 L365 100 Z"/>
-      <path d="M0 58 L394 74 L394 82 L0 66 Z"/>` },
+    sfinqs: { vb: 365, svg: `<path d="M0 100 L0 60 Q6 44 30 42 L120 46 L200 52 L246 50 L252 24 L268 8 L302 14 L300 46 L312 72 L365 84 L365 100 Z"/>
+      <path d="M246 50 L300 46 L300 54 L248 58 Z" opacity=".45"/>` },
     pisa: { x0: 3, vb: 24, svg: `<path d="M3 100 L9 8 L21 8 L27 100 Z"/><rect x="10" y="0" width="10" height="9"/>
       <path d="M6 40 L24 40 L24 44 L6 44 Z"/><path d="M5 66 L25 66 L25 70 L5 70 Z"/>` },
     kolizey: { vb: 394, svg: `<path d="M0 100 L0 30 Q120 4 250 18 L394 46 L394 100 Z"/>
@@ -30,9 +31,14 @@
       <path d="M30 46 C30 20 46 12 48 3 C50 12 66 20 66 46 Z"/><rect x="46" y="0" width="3" height="6"/>
       <rect x="1" y="28" width="5" height="72"/><rect x="90" y="28" width="5" height="72"/>
       <path d="M1 28 l2.5 -9 l2.5 9 z"/><path d="M90 28 l2.5 -9 l2.5 9 z"/>` },
-    azadliq: { x0: 6, vb: 32, svg: `<path d="M6 100 L11 70 L33 70 L38 100 Z"/><rect x="15" y="58" width="14" height="13"/>
-      <path d="M17 58 L15 26 L30 26 L28 58 Z"/><path d="M25 26 L31 8 L36 10 L30 28 Z"/>
-      <path d="M30 2 L38 7 L30 12 Z"/><path d="M11 30 L21 34 L13 46 Z"/>` },
+    azadliq: { x0: 6, vb: 33, svg: `<path d="M6 100 L11 60 L34 60 L39 100 Z"/>
+      <rect x="12" y="54" width="21" height="7"/>
+      <path d="M15 54 L18 26 L27 26 L31 54 Z"/>
+      <circle cx="22.5" cy="21" r="4"/>
+      <path d="M18.5 18 L14.5 12 L19.5 16 Z"/><path d="M22.5 16 L22.5 8 L25 15 Z"/><path d="M26.5 18 L30.5 12 L27 16.5 Z"/>
+      <path d="M26 27 L33 10 L36.5 11.5 L29.5 29 Z"/>
+      <path d="M33 10 L34.5 3 L37.5 8.5 L36.5 11.5 Z"/>
+      <path d="M17 28 L11.5 34 L14 37.5 L19.5 31.5 Z"/>` },
     bigben: { vb: 12.1, svg: `<rect x="0" y="94" width="12.1" height="6"/>
       <path d="M1.3 94 L1.9 35 L10.2 35 L10.8 94 Z"/>
       <rect x="0.9" y="28" width="10.3" height="7.5"/>
@@ -73,14 +79,24 @@
 
   const ROUNDS = 5;
   const LOG_MIN = Math.log10(1), LOG_MAX = Math.log10(900);
-  const GROUND = 34, RULER = 66, TOP = 20, RIGHT = 30, MIN_W = 26;
-  let items, round, results, locked, scene, tickKey = "";
+  const GROUND = 34, RULER = 66, TOP = 20, RIGHT = 30, MIN_W = 10, CEIL = 1000;
+  let items, round, results, locked, dragging = false, scene, tickKey = "", seed = 0;
 
   const sliderToM = (v) => Math.pow(10, LOG_MIN + (v / 1000) * (LOG_MAX - LOG_MIN));
   const mToSlider = (m) => Math.round(((Math.log10(m) - LOG_MIN) / (LOG_MAX - LOG_MIN)) * 1000);
   const fmtM = (m) => (m >= 10 ? `${Math.round(m)} m` : `${SP.fmt(m, 1)} m`);
+  const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
 
-  /* şkala addımları: 5-7 ədəd həmişə "gözəl" rəqəmlərlə (1, 2, 2.5, 5, 10 × 10^n) */
+  /* çərçivənin tavanı: real hündürlüyün 2,2 qatı, kələ-kötür "gözəl" ədədə
+     yuvarlaqlaşdırılır — tavana baxıb doğru cavabı tapmaq mümkün olmasın */
+  function frameTop(h) {
+    const x = Math.min(CEIL, h * 2.2);
+    const pow = Math.pow(10, Math.floor(Math.log10(x)));
+    for (const m of [1, 2, 4, 8]) if (m * pow >= x) return m * pow;
+    return 10 * pow;
+  }
+
+  /* şkala addımları: 5-6 ədəd həmişə "gözəl" rəqəmlərlə (1, 2, 2.5, 5, 10 × 10^n) */
   function niceStep(range) {
     const raw = range / 6;
     const pow = Math.pow(10, Math.floor(Math.log10(raw)));
@@ -91,9 +107,17 @@
   function newGame() {
     const start = SP.dayIndex("olcu");
     items = Array.from({ length: ROUNDS }, (_, i) => SP.SIZES[(start + i * 3) % SP.SIZES.length]);
+    seed = start;
     round = 0;
     results = [];
     draw();
+  }
+
+  /* raundun əvvəlində tutacağın mövqeyi: çərçivənin 30-58%-i. Gün üzrə sabit,
+     amma real hündürlükdən asılı deyil — yəni start cavabı "salam" vermir */
+  function startFrac(i) {
+    const x = Math.sin((seed + 1) * 12.9898 + (i + 3) * 78.233) * 43758.5453;
+    return 0.3 + 0.28 * (x - Math.floor(x));
   }
 
   function scoreOf(est, real) {
@@ -104,14 +128,17 @@
   function draw() {
     const it = items[round], sh = SHAPES[it.id];
     locked = false;
+    dragging = false;
     el.reveal.innerHTML = "";
     el.next.style.display = "none";
     el.lock.style.display = "";
     el.lock.disabled = false;
     el.feedback.textContent = "";
     el.slider.disabled = false;
-    el.slider.value = 400;
     el.stage.classList.remove("is-revealed");
+
+    const top = frameTop(it.h);
+    el.slider.value = clamp(mToSlider(Math.min(900, top * startFrac(round))), 0, 1000);
 
     const body = `<g transform="translate(${-(sh.x0 || 0)} 0)">${sh.svg}</g>`;
     el.stage.innerHTML = `
@@ -121,29 +148,30 @@
         <svg viewBox="0 0 ${sh.vb} 100" preserveAspectRatio="none" role="img"
           aria-label="${SP.esc(it.name)} silueti">${body}</svg>
       </div>
-      <div class="sz-ghost" data-ghost>
-        <svg viewBox="0 0 ${sh.vb} 100" preserveAspectRatio="none" aria-hidden="true">${body}</svg>
-      </div>
       <div class="sz-dim" data-dim><b data-dimlab>?</b></div>
       <div class="sz-person" data-person>
         <svg viewBox="0 0 ${PERSON_VB} 100" preserveAspectRatio="none" aria-hidden="true">${PERSON_SVG}</svg>
         <span>1,7 m</span>
       </div>
       <div class="sz-guess" data-guess><span data-guesslab></span></div>
+      <div class="sz-handle" data-handle><i></i><i></i><i></i><b data-hlab></b></div>
+      <div class="sz-ceiling" data-ceiling><span>0 xal həddi</span></div>
       <div class="sz-name" data-name>${SP.esc(it.name)}</div>
       <div class="ground"></div>`;
 
     scene = {
-      it, sh,
+      it, sh, top,
       grid: el.stage.querySelector("[data-grid]"),
       ruler: el.stage.querySelector("[data-ruler]"),
-      ghost: el.stage.querySelector("[data-ghost]"),
       obj: el.stage.querySelector("[data-obj]"),
       dim: el.stage.querySelector("[data-dim]"),
       dimlab: el.stage.querySelector("[data-dimlab]"),
       person: el.stage.querySelector("[data-person]"),
       guess: el.stage.querySelector("[data-guess]"),
       guesslab: el.stage.querySelector("[data-guesslab]"),
+      handle: el.stage.querySelector("[data-handle]"),
+      hlab: el.stage.querySelector("[data-hlab]"),
+      ceiling: el.stage.querySelector("[data-ceiling]"),
       name: el.stage.querySelector("[data-name]")
     };
     tickKey = "";
@@ -156,45 +184,49 @@
   function layout() {
     if (!scene) return;
     const rect = el.stage.getBoundingClientRect();
-    const { it, sh } = scene;
+    const { it, sh, top } = scene;
     const est = sliderToM(+el.slider.value);
     const usableH = Math.max(60, rect.height - GROUND - TOP);
     const usableW = Math.max(60, rect.width - RULER - RIGHT);
 
-    const wM = (sh.vb / 100) * it.h;                       /* obyektin real eni, metr */
-    const gr = est / it.h;
-    /* kamera: hündürlük və en birlikdə təxminə görə uzaqlaşır —
-       kiçik təxmin yerinə böyük təxmin səhnəni kiçildir */
-    const sceneMax = Math.max(it.h, est) * 1.14;
-    const k = Math.min(usableH / sceneMax, usableW / Math.max(wM * Math.max(gr, 1), 0.2));
+    /* çərçivə sabit: k yalnız raunddan və səhnə ölçüsündən asılıdır */
+    const k = usableH / top;
     const yOf = (m) => GROUND + m * k;
+    const centerX = RULER + usableW / 2;
 
-    const objH = it.h * k;
-    const objW = Math.max(wM * k, MIN_W);
-    const objLeft = RULER + (usableW - objW) / 2;
+    /* görünən hündürlük: kiliddən əvvəl təxmin, sonra həqiqət */
+    const shown = locked ? it.h : est;
+    const sc = shown / it.h;
+    const objH = Math.min(shown * k, usableH);
+    /* eni səhnədən daşmasın: hündürlük şkalaya sadiq qalır, uzunu sıxılır */
+    const objW = clamp((sh.vb / 100) * it.h * k * sc, MIN_W, usableW - 4);
+    const objLeft = centerX - objW / 2;
     scene.obj.style.cssText = `left:${objLeft.toFixed(1)}px;width:${objW.toFixed(1)}px;height:${objH.toFixed(1)}px`;
-    scene.dim.style.cssText = `left:${(objLeft + objW + 14).toFixed(1)}px;height:${objH.toFixed(1)}px`;
-    scene.name.style.left = `${(objLeft + objW / 2).toFixed(1)}px`;
+    scene.name.style.left = `${centerX.toFixed(1)}px`;
 
-    /* kölgə = obyektin təxminə görə miqyaslanmış nüsxəsi, eyni mərkəzdə */
-    const gW = Math.max(objW * gr, 6), gH = Math.max(objH * gr, 6);
-    scene.ghost.style.cssText =
-      `left:${(objLeft + (objW - gW) / 2).toFixed(1)}px;width:${gW.toFixed(1)}px;height:${gH.toFixed(1)}px`;
+    /* ölçü xətti: yalnız təsdiqdən sonra real hündürlüyü göstərir */
+    const realH = Math.min(it.h * k, usableH);
+    scene.dim.style.cssText = `left:${(centerX + Math.max(objW, (sh.vb / 100) * it.h * k) / 2 + 16).toFixed(1)}px;height:${realH.toFixed(1)}px`;
 
-    scene.guess.style.bottom = `${yOf(est).toFixed(1)}px`;
+    /* təxmin xətti + tutacaqlar */
+    scene.guess.style.bottom = `${yOf(clamp(est, 0, top)).toFixed(1)}px`;
+    scene.handle.style.bottom = `${(yOf(clamp(est, 0, top)) - 9).toFixed(1)}px`;
+    scene.handle.classList.toggle("is-capped", est > top);
+    scene.hlab.textContent = fmtM(est);
     scene.guesslab.textContent = `Təxminin · ${fmtM(est)}`;
+    scene.ceiling.style.bottom = `${(GROUND + top * k).toFixed(1)}px`;
 
-    /* insan rəqəmi eyni miqyasda, obyektin solunda dayanır; 6 px-dən kiçik
-       rəqəmlər görünmür — o zaman minimuma çəkilir və "clamped" işarələnir */
+    /* insan rəqəmi həmişə eyni miqyasda durur — 6 px-dən kiçik rəqəm görünmür,
+       o zaman minimuma çəkilir və "clamped" işarələnir */
     const humTrue = SP.HUMAN_H * k;
     const hum = Math.max(6, humTrue);
-    const humLeft = Math.max(RULER + 6, objLeft - hum * 0.28 - 12);
+    const humLeft = Math.max(RULER + 6, centerX - objW / 2 - hum * 0.28 - 14);
     scene.person.style.cssText = `left:${humLeft.toFixed(1)}px;width:${(hum * 0.28).toFixed(1)}px;height:${hum.toFixed(1)}px`;
     scene.person.classList.toggle("is-clamped", humTrue < 6);
 
-    const step = niceStep(usableH / k);
+    const step = niceStep(top);
     const vals = [];
-    for (let v = step; v <= usableH / k; v += step) vals.push(+v.toFixed(2));
+    for (let v = step; v < top; v += step) vals.push(+v.toFixed(2));
     const key = vals.join(",");
     if (key !== tickKey) {
       tickKey = key;
@@ -202,9 +234,6 @@
         `<div class="sz-tick" style="bottom:${yOf(v).toFixed(1)}px"><span>${fmtM(v)}</span></div>`).join("");
       scene.grid.innerHTML = vals.map((v) =>
         `<i style="bottom:${yOf(v).toFixed(1)}px"></i>`).join("");
-    } else {
-      [...scene.ruler.children].forEach((t, i) => { t.style.bottom = `${yOf(vals[i]).toFixed(1)}px`; });
-      [...scene.grid.children].forEach((t, i) => { t.style.bottom = `${yOf(vals[i]).toFixed(1)}px`; });
     }
   }
 
@@ -215,6 +244,12 @@
 
   function updateReadout() {
     el.readout.textContent = fmtM(sliderToM(+el.slider.value));
+  }
+
+  function setEst(m) {
+    el.slider.value = clamp(mToSlider(clamp(m, 1, 900)), 0, 1000);
+    updateReadout();
+    layout();
   }
 
   function renderScore() {
@@ -228,6 +263,28 @@
   el.slider.addEventListener("input", () => { updateReadout(); if (!locked) layout(); });
   if (window.ResizeObserver) new ResizeObserver(() => layout()).observe(el.stage);
   else window.addEventListener("resize", layout);
+
+  /* birbaşa tənzimləmə: səhnədə sürüşdür, cisim barmağının altında böyüyür */
+  const pointerToM = (clientY) => {
+    const rect = el.stage.getBoundingClientRect();
+    const usableH = Math.max(60, rect.height - GROUND - TOP);
+    return (rect.bottom - GROUND - clientY) / (usableH / scene.top);
+  };
+  el.stage.addEventListener("pointerdown", (e) => {
+    if (locked || !scene) return;
+    dragging = true;
+    el.stage.classList.add("is-dragging");
+    el.stage.setPointerCapture(e.pointerId);
+    setEst(pointerToM(e.clientY));
+    e.preventDefault();
+  });
+  el.stage.addEventListener("pointermove", (e) => {
+    if (dragging && !locked) setEst(pointerToM(e.clientY));
+  });
+  ["pointerup", "pointercancel"].forEach((t) => el.stage.addEventListener(t, () => {
+    dragging = false;
+    el.stage.classList.remove("is-dragging");
+  }));
 
   el.lock.addEventListener("click", () => {
     if (locked) return;

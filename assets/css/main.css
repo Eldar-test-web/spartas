@@ -466,7 +466,9 @@ p.lead { color: var(--stone); font-size: 16.5px; max-width: 66ch; margin: 0; }
     radial-gradient(110% 80% at 50% 100%, rgba(111, 255, 190, .09) 0%, rgba(6, 26, 19, 0) 58%),
     linear-gradient(180deg, #05150f 0%, #0a241b 100%);
   border: 1px solid var(--line);
+  cursor: ns-resize; touch-action: none; user-select: none; -webkit-user-select: none;
 }
+.size-stage.is-revealed { cursor: default; }
 .size-stage .ground {
   position: absolute; left: 0; right: 0; bottom: 0; height: 34px;
   border-top: 1px solid var(--line-mint);
@@ -484,23 +486,15 @@ p.lead { color: var(--stone); font-size: 16.5px; max-width: 66ch; margin: 0; }
 }
 .sz-tick::after { content: ""; width: 9px; height: 1px; background: var(--line-2); }
 
-/* təxmin kölgəsi: obyektin eyni forması, slider ilə canlı böyüyür */
-.sz-ghost {
-  position: absolute; bottom: 34px; color: var(--warn); opacity: .42;
-  transition: height .1s linear, width .1s linear, left .1s linear;
-}
-.sz-ghost svg { display: block; width: 100%; height: 100%; fill: currentColor; }
-.sz-ghost::after {
-  content: ""; position: absolute; left: -3px; right: -3px; top: -1px; height: 2px;
-  background: var(--warn); opacity: .85;
-}
-.size-stage.is-revealed .sz-ghost { opacity: .22; }
-.size-stage.is-revealed .sz-ghost::after { opacity: .5; }
-
 .sz-obj {
   position: absolute; bottom: 34px; color: #d6f2e2;
   filter: drop-shadow(0 0 16px rgba(111, 255, 190, .16));
-  transition: height .16s ease, width .16s ease, left .16s ease;
+  transition: height .1s linear, width .1s linear, left .1s linear;
+}
+.size-stage.is-dragging .sz-obj, .size-stage.is-dragging .sz-handle,
+.size-stage.is-dragging .sz-guess { transition: none; }
+.size-stage.is-revealed .sz-obj {
+  transition: height .62s cubic-bezier(.2, .75, .25, 1), width .62s cubic-bezier(.2, .75, .25, 1), left .62s cubic-bezier(.2, .75, .25, 1);
 }
 .sz-obj svg { display: block; width: 100%; height: 100%; fill: currentColor; }
 .sz-obj::before {
@@ -508,11 +502,12 @@ p.lead { color: var(--stone); font-size: 16.5px; max-width: 66ch; margin: 0; }
   background: radial-gradient(50% 50% at 50% 50%, rgba(0, 0, 0, .5), rgba(0, 0, 0, 0) 72%);
 }
 
-/* ölçü xətti: obyektin hündürlüyünü göstərir */
+/* ölçü xətti: təsdiqdən SORAXI real hündürlüyü göstərir — əvvəl gizlidir,
+   yoxsa cizginin özü cavabı açıqlayar */
 .sz-dim {
-  position: absolute; bottom: 34px; width: 1px;
+  position: absolute; bottom: 34px; width: 1px; opacity: 0;
   background: linear-gradient(180deg, var(--mint), rgba(111, 255, 190, .3));
-  transition: height .16s ease, left .16s ease;
+  transition: opacity .4s ease, height .16s ease, left .16s ease;
 }
 .sz-dim::before, .sz-dim::after { content: ""; position: absolute; left: -4px; width: 9px; height: 1px; background: var(--mint); }
 .sz-dim::before { top: 0; } .sz-dim::after { bottom: 0; }
@@ -521,6 +516,7 @@ p.lead { color: var(--stone); font-size: 16.5px; max-width: 66ch; margin: 0; }
   font-family: var(--f-display); font-size: 12px; font-weight: 600; letter-spacing: .1em;
   color: var(--stone-dim); font-variant-numeric: tabular-nums;
 }
+.size-stage.is-revealed .sz-dim { opacity: 1; }
 .size-stage.is-revealed .sz-dim b { color: var(--mint); }
 
 /* təxmin xətti — sürüşdürülcə canlı hərəkət edir */
@@ -532,9 +528,36 @@ p.lead { color: var(--stone); font-size: 16.5px; max-width: 66ch; margin: 0; }
   position: absolute; right: 0; top: -9px; padding: 2px 7px; white-space: nowrap;
   background: rgba(232, 193, 90, .13); border: 1px solid rgba(232, 193, 90, .4);
   color: var(--warn); font-family: var(--f-display); font-size: 10.5px; font-weight: 500;
-  letter-spacing: .1em; text-transform: uppercase;
+  letter-spacing: .1em; text-transform: uppercase; opacity: 0; transition: opacity .35s ease;
 }
 .size-stage.is-revealed .sz-guess { border-top-style: solid; opacity: .75; }
+.size-stage.is-revealed .sz-guess span { opacity: 1; }
+
+/* tutacaq: cismin üst kənarında — birbaşa sürüşdürülən tənzimləmə çubuğu */
+.sz-handle {
+  position: absolute; left: 50%; transform: translateX(-50%); width: 124px; height: 22px;
+  display: grid; place-items: center; background: #0a3226; border: 1px solid var(--mint);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, .35); cursor: ns-resize; z-index: 3;
+  transition: bottom .1s linear, opacity .3s ease;
+}
+.sz-handle b {
+  font-family: var(--f-display); font-size: 12.5px; font-weight: 600; letter-spacing: .08em;
+  color: var(--mint); font-variant-numeric: tabular-nums; padding-left: 16px;
+}
+.sz-handle i { position: absolute; left: 9px; width: 12px; height: 1.5px; background: var(--mint); opacity: .8; }
+.sz-handle i:nth-child(1) { top: 6px; } .sz-handle i:nth-child(2) { top: 10px; } .sz-handle i:nth-child(3) { top: 14px; }
+.sz-handle::after { content: "↕"; position: absolute; right: 8px; font-size: 13px; color: var(--mint); opacity: .85; }
+.sz-handle.is-capped { border-color: var(--bad); box-shadow: 0 0 0 3px rgba(196, 84, 66, .22); }
+.sz-handle.is-capped b, .sz-handle.is-capped i, .sz-handle.is-capped::after { color: #ffb4a6; background-color: inherit; }
+.size-stage.is-revealed .sz-handle { opacity: 0; pointer-events: none; }
+
+/* çərçivənin tavanı: bu xəttə çatan təxmin 0 xaldır */
+.sz-ceiling { position: absolute; left: 66px; right: 14px; height: 0; border-top: 1px dashed rgba(214, 116, 98, .38); }
+.sz-ceiling span {
+  position: absolute; left: 8px; top: -8px; white-space: nowrap;
+  font-family: var(--f-display); font-size: 9.5px; letter-spacing: .14em; text-transform: uppercase;
+  color: rgba(224, 148, 128, .75);
+}
 
 .sz-person { position: absolute; bottom: 34px; color: rgba(156, 189, 170, .6); }
 .sz-person svg { display: block; width: 100%; height: 100%; fill: currentColor; }
