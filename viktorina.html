@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="az">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Klassik Suallar — SPARTANS Viktorina</title>
+<meta name="description" content="Viktorina: tarix, coğrafiya, elm, mədəniyyət, idman və məntiq üzrə suallar. Hər sual üçün 20 saniyə.">
+<meta name="theme-color" content="#0D6940">
+<link rel="icon" href="assets/img/favicon.png" sizes="48x48" type="image/png">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body data-page="viktorina">
+<a class="skip-link" href="#main">Əsas mətnə keç</a>
+<div class="layout">
+  <aside class="sidebar" id="sidebar"></aside>
+  <div class="main-col">
+    <header class="topbar" id="topbar"></header>
+    <main id="main">
+      <div class="page-head">
+        <p class="eyebrow">Oyun 06 · Viktorina</p>
+        <h1>Klassik Suallar</h1>
+        <p class="lead">Kateqoriyanı seç, suala cavab ver. Hər sual üçün 20 saniyə — nə qədər tez cavab versən, o qədər çox vaxt bonusu.</p>
+      </div>
+
+      <div class="grid" style="grid-template-columns:minmax(0,1fr) 320px;align-items:start">
+        <section class="card" id="panel"></section>
+
+        <aside class="rail">
+          <section class="card">
+            <h2>Cari tur</h2>
+            <div class="grid g2" id="vStats"></div>
+          </section>
+          <section class="card">
+            <h3>Seriya</h3>
+            <p class="small muted" id="streakText">Hələ oyun başlamayıb.</p>
+            <div class="progress mt"><i id="streakBar" style="width:0%"></i></div>
+          </section>
+          <section class="card">
+            <h3>Digər oyunlar</h3>
+            <div class="row" id="otherGames"></div>
+          </section>
+        </aside>
+      </div>
+    </main>
+    <footer class="site-foot" id="site-foot"></footer>
+  </div>
+</div>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/app.js"></script>
+<script src="assets/js/quiz.js"></script>
+</body>
+</html>

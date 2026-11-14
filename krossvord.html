@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="az">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Krossvord — SPARTANS</title>
+<meta name="description" content="SPARTANS krossvord: 26 şaquli və üfüqi sual, 17×17 şəbəkə. Azərbaycan dilində klassik krossvord oyunu.">
+<meta name="theme-color" content="#0D6940">
+<link rel="icon" href="assets/img/favicon.png" sizes="48x48" type="image/png">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body data-page="krossvord">
+<a class="skip-link" href="#main">Əsas mətnə keç</a>
+<div class="layout">
+  <aside class="sidebar" id="sidebar"></aside>
+  <div class="main-col">
+    <header class="topbar" id="topbar"></header>
+    <main id="main">
+      <div class="page-head row between" style="align-items:flex-end">
+        <div>
+          <p class="eyebrow">Oyun 02 · Şəbəkə</p>
+          <h1>Krossvord</h1>
+          <p class="lead">26 sual, 17×17 şəbəkə. Hər hücrəyə bir hərf yaz — şaquli və üfüqi sözlər kəsişir.</p>
+        </div>
+        <div class="row" style="gap:18px">
+          <div class="stat"><b id="timeOut">0:00</b><span>vaxt</span></div>
+          <div class="stat"><b id="doneOut">0/26</b><span>tapılıb</span></div>
+        </div>
+      </div>
+
+      <div class="cc-wrap">
+        <section class="card">
+          <div class="cc-scroll"><div class="cc-grid" id="grid" role="grid" aria-label="Krossvord şəbəkəsi"></div></div>
+          <div class="row mt">
+            <button class="btn btn-sm btn-primary" id="checkBtn" type="button">Yoxla</button>
+            <button class="btn btn-sm btn-ghost" id="hintBtn" type="button">Bir hərf aç (−5 xal)</button>
+            <button class="btn btn-sm btn-ghost" id="clearBtn" type="button">Təmizlə</button>
+            <span class="small dim" id="activeClue"></span>
+          </div>
+        </section>
+
+        <aside class="rail">
+          <section class="card">
+            <div class="row between"><h2 style="margin:0">Üfüqi</h2><span class="chip chip-neutral" id="acrossCount"></span></div>
+            <div class="cc-list" id="acrossList"></div>
+          </section>
+          <section class="card">
+            <div class="row between"><h2 style="margin:0">Şaquli</h2><span class="chip chip-neutral" id="downCount"></span></div>
+            <div class="cc-list" id="downList"></div>
+          </section>
+        </aside>
+      </div>
+    </main>
+    <footer class="site-foot" id="site-foot"></footer>
+  </div>
+</div>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/crossword-data.js"></script>
+<script src="assets/js/app.js"></script>
+<script src="assets/js/crossword.js"></script>
+</body>
+</html>

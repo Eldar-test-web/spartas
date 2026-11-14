@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="az">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Giriş — SPARTANS</title>
+<meta name="description" content="SPARTANS klubunda adını yaz, komanda seç — məlumatlar brauzerinin yerli yaddaşında saxlanılır.">
+<meta name="theme-color" content="#0D6940">
+<link rel="icon" href="assets/img/favicon.png" sizes="48x48" type="image/png">
+<link rel="icon" href="assets/img/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<meta property="og:title" content="Giriş — SPARTANS">
+<meta property="og:description" content="SPARTANS klubunda adını yaz, komanda seç — məlumatlar brauzerinin yerli yaddaşında saxlanılır.">
+<meta property="og:image" content="assets/img/og-image.png">
+<link rel="stylesheet" href="assets/css/main.css">
+<link rel="stylesheet" href="assets/css/pages.css">
+</head>
+<body data-page="girish">
+<a class="skip-link" href="#main">Əsas mətnə keç</a>
+<div class="layout">
+  <aside class="sidebar" id="sidebar"></aside>
+  <div class="main-col">
+    <header class="topbar" id="topbar"></header>
+    <main id="main">
+      <div class="page-head">
+        <p class="eyebrow">Hesab yoxdur</p>
+        <h1>Giriş</h1>
+        <p class="lead">Parol, e-poçt və serverə göndərilən heç nə yoxdur. Sadə bir ad və komanda seçimi kifayətdir.</p>
+      </div>
+
+      <div class="login-wrap">
+        <form class="card" id="loginForm">
+          <label class="field">
+            <span>Adın</span>
+            <input id="nameInput" name="name" type="text" maxlength="24" autocomplete="nickname" placeholder="məsələn: Elxan" required>
+          </label>
+          <label class="field">
+            <span>Komanda</span>
+            <select id="teamSel" name="team"></select>
+          </label>
+          <button class="btn btn-mint" type="submit">Daxil ol</button>
+          <p class="small dim mt">Məlumat <code>localStorage</code>-da saxlanılır. Cihazı dəyişsən, tarixçə köçmür.</p>
+        </form>
+        <aside class="card why-card">
+          <h2>Niyə lazımdır</h2>
+          <ul class="tick-list">
+            <li>Xalların bir yerə yığılsın — oyunlar arasında ümumi nəticə görürsən.</li>
+            <li>Nişanlar açılsın: ilk Wordle, 100 xal, 500 xal, krossvord şəbəkəsi.</li>
+            <li>Komanda cədvəlində öz payını “sən” işarəsi ilə görə bilsən.</li>
+          </ul>
+        </aside>
+      </div>
+    </main>
+    <footer class="site-foot" id="site-foot"></footer>
+  </div>
+</div>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/app.js"></script>
+<script src="assets/js/pages.js"></script>
+</body>
+</html>

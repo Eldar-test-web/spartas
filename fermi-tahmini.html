@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="az">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fermi Tahmini — SPARTANS</title>
+<meta name="description" content="Fermi təxminləri: böyük rəqəmləri tərtibinə görə seç. 8 sual, hər sual 10 xal.">
+<meta name="theme-color" content="#0D6940">
+<link rel="icon" href="assets/img/favicon.png" sizes="48x48" type="image/png">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body data-page="fermi">
+<a class="skip-link" href="#main">Əsas mətnə keç</a>
+<div class="layout">
+  <aside class="sidebar" id="sidebar"></aside>
+  <div class="main-col">
+    <header class="topbar" id="topbar"></header>
+    <main id="main">
+      <div class="page-head">
+        <p class="eyebrow">Oyun 04 · Tərtib</p>
+        <h1>Fermi Tahmini</h1>
+        <p class="lead">Enrico Ferminin üsulu: dəqiq rəqəmi bilməmək normaldır, vacib olan <b>tərtibi</b> tutmaqdır.
+          Hər sualda ən yaxın hesab etdiyin variantı seç.</p>
+      </div>
+
+      <div class="grid" style="grid-template-columns:minmax(0,1fr) 320px;align-items:start">
+        <section class="card" id="quizCard">
+          <div class="row between" style="margin-bottom:14px">
+            <span class="chip" id="qCounter">1 / 8</span>
+            <span class="chip chip-neutral" id="qScore">0 xal</span>
+          </div>
+          <h2 id="qText" style="font-size:22px"></h2>
+          <p class="small dim" id="qUnit"></p>
+          <div id="qOptions" style="margin-top:18px"></div>
+          <div id="qExplain" class="card small" style="display:none;margin-top:14px;background:var(--deep-3);border-color:var(--line-2)"></div>
+          <div class="row mt">
+            <button class="btn btn-primary" id="qNext" type="button" style="display:none">Növbəti sual →</button>
+            <button class="btn btn-ghost" id="qRestart" type="button">Sıfırdan başla</button>
+          </div>
+        </section>
+
+        <aside class="rail">
+          <section class="card">
+            <h2>Nəticə</h2>
+            <div class="grid g2" id="fStats"></div>
+          </section>
+          <section class="card">
+            <h3>Nümunə tərtiblər</h3>
+            <p class="small muted">1 min ≈ nəfəs sayın bir dəqiqədə · 1 milyon ≈ başındakı saç teli ·
+              1 milyard ≈ ürəyinin ömrü boyuncu döyüntüsü · 1 trilyon ≈ bir işıq ilindəki kilometr.</p>
+          </section>
+          <section class="card">
+            <h3>Digər oyunlar</h3>
+            <div class="row" id="otherGames"></div>
+          </section>
+        </aside>
+      </div>
+    </main>
+    <footer class="site-foot" id="site-foot"></footer>
+  </div>
+</div>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/app.js"></script>
+<script src="assets/js/fermi.js"></script>
+</body>
+</html>

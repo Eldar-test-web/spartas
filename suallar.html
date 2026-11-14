@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="az">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Suallar bankı — SPARTANS</title>
+<meta name="description" content="Tarix, coğrafiya, elm, mədəniyyət, idman və məntiq üzrə klassik sual bankı — axtarış və kateqoriya filtri ilə.">
+<meta name="theme-color" content="#0D6940">
+<link rel="icon" href="assets/img/favicon.png" sizes="48x48" type="image/png">
+<link rel="icon" href="assets/img/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<meta property="og:title" content="Suallar bankı — SPARTANS">
+<meta property="og:description" content="Tarix, coğrafiya, elm, mədəniyyət, idman və məntiq üzrə klassik sual bankı — axtarış və kateqoriya filtri ilə.">
+<meta property="og:image" content="assets/img/og-image.png">
+<link rel="stylesheet" href="assets/css/main.css">
+<link rel="stylesheet" href="assets/css/pages.css">
+</head>
+<body data-page="suallar">
+<a class="skip-link" href="#main">Əsas mətnə keç</a>
+<div class="layout">
+  <aside class="sidebar" id="sidebar"></aside>
+  <div class="main-col">
+    <header class="topbar" id="topbar"></header>
+    <main id="main">
+      <div class="page-head">
+        <p class="eyebrow">Viktorina bankı</p>
+        <h1>Suallar</h1>
+        <p class="lead">Oyunda çıxacaq sualların tam siyahısı — dörd variant, düzgün cavab və izahı ilə. Təkrar oxumaq üçün bank, oynamaq üçün <a href="viktorina.html">Klassik Suallar</a>.</p>
+      </div>
+
+      <div class="card filter-card">
+        <div class="row between" style="gap:14px;flex-wrap:wrap">
+          <label class="field" style="margin:0;flex:1 1 260px">
+            <span>Axtar</span>
+            <input id="qSearch" type="search" placeholder="məsələn: Cümhuriyyət, Nizami, planet">
+          </label>
+          <label class="field" style="margin:0">
+            <span>Çətinlik</span>
+            <select id="diffSel">
+              <option value="">İstənilən</option>
+              <option>Asan</option><option>Orta</option><option>Çətin</option>
+            </select>
+          </label>
+        </div>
+        <div class="row chip-row" id="catChips"></div>
+        <p class="small dim" id="qCount"></p>
+      </div>
+
+      <div class="grid g2" id="qList"></div>
+    </main>
+    <footer class="site-foot" id="site-foot"></footer>
+  </div>
+</div>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/app.js"></script>
+<script src="assets/js/pages.js"></script>
+</body>
+</html>

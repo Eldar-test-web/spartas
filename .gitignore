@@ -1,0 +1,9 @@
+shots/
+chrome-profile/
+cp*/
+*.tmp
+__pycache__/
+*.pyc
+.DS_Store
+node_modules/
+package-lock.json

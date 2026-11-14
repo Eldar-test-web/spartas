@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="az">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SPARTANS Viktorina — Nəticə</title>
+    <link rel="stylesheet" href="app.css" />
+    <link rel="stylesheet" href="adapt.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div id="end" class="flex-center flex-column">
+        <h1 id="finalScore"></h1>
+        <form>
+          <input type="text" name="username" id="username" placeholder="Adınızı yazın" />
+          <button type="submit" class="btn" id="saveScoreBtn" onclick="saveHighScore(event)" disabled>
+            Yadda saxla
+          </button>
+        </form>
+        <a class="btn" href="game.html">Yenidən oyna</a>
+        <a class="btn btn-alt" href="index.html">Əsas səhifə</a>
+      </div>
+    </div>
+    <script src="end.js"></script>
+  </body>
+</html>

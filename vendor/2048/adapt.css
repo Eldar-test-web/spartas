@@ -1,0 +1,48 @@
+/* SPARTANS palette override for 2048 (upstream style/main.css üstünə yazılır).
+   Rənglər: #0D6940 + #6FFFBE. */
+
+:root {
+  --deep: #0d6940;
+  --mint: #6fffbe;
+  --bg: #04120c;
+  --panel: #08221a;
+  --line: rgba(111, 255, 190, .18);
+  --text: #e8fff6;
+  --muted: #8ec7ae;
+}
+
+body { background: radial-gradient(720px 420px at 50% -10%, rgba(13, 105, 64, .5), transparent 62%), var(--bg) !important; color: var(--text) !important; font-family: system-ui, "Segoe UI", Roboto, Arial, sans-serif !important; }
+
+.title { color: var(--mint) !important; }
+.game-intro { color: var(--muted) !important; }
+.score-container, .best-container { background: var(--panel) !important; color: var(--text) !important; border: 1px solid var(--line); }
+.score-container::after, .best-container::after { background: var(--deep) !important; color: var(--mint) !important; }
+
+.restart-button, .keep-playing-button, .retry-button {
+  background: var(--deep) !important; color: #eafff5 !important; border: 1px solid var(--line); border-radius: 10px;
+}
+.restart-button:hover, .retry-button:hover, .keep-playing-button:hover { background: #12875a !important; }
+
+.grid-container { background: #071b13 !important; border: 1px solid var(--line); }
+.grid-cell { background: #0c231a !important; }
+
+.tile, .tile-new { color: var(--text) !important; }
+.tile-2 { background: #0f3627 !important; box-shadow: none !important; }
+.tile-4 { background: #12402e !important; box-shadow: none !important; }
+.tile-8 { background: #16523a !important; box-shadow: none !important; }
+.tile-16 { background: var(--deep) !important; box-shadow: none !important; }
+.tile-32 { background: #12875a !important; box-shadow: none !important; }
+.tile-64 { background: #17a06b !important; box-shadow: none !important; color: #04120c !important; }
+.tile-128 { background: #2fc48c !important; box-shadow: none !important; color: #04120c !important; }
+.tile-256 { background: #4ee0a4 !important; box-shadow: none !important; color: #04120c !important; }
+.tile-512 { background: #6fffbe !important; box-shadow: none !important; color: #04120c !important; }
+.tile-1024 { background: #8cffc9 !important; box-shadow: none !important; color: #04120c !important; }
+.tile-2048 { background: #b6ffdd !important; box-shadow: 0 0 24px rgba(111, 255, 190, .55) !important; color: #04120c !important; }
+
+.game-message { background: rgba(4, 18, 12, .88) !important; }
+.game-message p { color: var(--mint) !important; }
+.game-message.game-won { background: rgba(13, 105, 64, .82) !important; color: #eafff5 !important; }
+
+.above-game, .game-explanation { color: var(--muted) !important; }
+.important { color: var(--mint) !important; }
+a { color: var(--mint); }

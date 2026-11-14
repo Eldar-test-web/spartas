@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="az">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SPARTANS — İntellektual Oyunlar Klubu</title>
+<meta name="description" content="SPARTANS intellektual oyunlar klubu: Wordle, krossvord, ölçü təxmini, Fermi təxmini, mini oyunlar və klassik suallar. Bilik, strategiya, komanda.">
+<meta name="theme-color" content="#0D6940">
+<link rel="icon" href="assets/img/favicon.png" sizes="48x48" type="image/png">
+<link rel="icon" href="assets/img/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<meta property="og:title" content="SPARTANS — İntellektual Oyunlar Klubu">
+<meta property="og:description" content="Bilik, strategiya, komanda! Altı intellektual oyun, komanda reytinqi və gündəlik tapşırıqlar.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="assets/img/og-image.png">
+<link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body data-page="index">
+<a class="skip-link" href="#main">Əsas mətnə keç</a>
+<div class="layout">
+  <aside class="sidebar" id="sidebar"></aside>
+  <div class="main-col">
+    <header class="topbar" id="topbar"></header>
+    <main id="main">
+      <div class="home-grid">
+        <div>
+          <section class="hero">
+            <img class="hero-art" src="assets/img/hero-spartan.jpg" alt="Yaşıl işıqla vurğulanmış Spartan dəyənəyi" width="1600" height="914">
+            <div class="hero-shade"></div>
+            <div class="hero-inner">
+              <div class="hero-rule"></div>
+              <p class="eyebrow">İntellektual oyunlar klubu</p>
+              <h1>Bilik, strategiya,<br>komanda</h1>
+              <p>Altı oyun, bir klub. Söz, şəbəkə, təxmin və bilik üzərində işləyən gündəlik raundlar — hamısı Azərbaycan dilində.</p>
+              <a class="btn btn-mint" href="oyunlar.html">Oyunlara başla</a>
+            </div>
+          </section>
+
+          <div class="section-head">
+            <h2>Oyunlar</h2>
+            <a class="link" href="oyunlar.html">Bütün oyunlar</a>
+          </div>
+          <div class="game-list" id="gameGrid"></div>
+
+          <div class="section-head">
+            <h2>Bu günün sualları</h2>
+            <a class="link" href="suallar.html">Sual bankı</a>
+          </div>
+          <div class="card" style="padding:6px 22px"><div id="latestQuestions"></div></div>
+        </div>
+
+        <aside class="rail">
+          <section class="card">
+            <div class="row between">
+              <h2 id="lbTitle" style="margin:0">Liderlər Cədvəli</h2>
+              <a class="small" href="liderler.html">Hamısı →</a>
+            </div>
+            <div id="leaderboard"></div>
+          </section>
+
+          <section class="card">
+            <div class="row"><h2 style="margin:0">Bu günün mini tapşırığı</h2></div>
+            <p class="task-quote" id="dailyTask"></p>
+            <div class="center"><a class="btn btn-primary btn-sm" href="suallar.html">Cavab ver →</a></div>
+          </section>
+
+          <section class="card">
+            <div class="row"><h2 style="margin:0">Növbəti yarış</h2></div>
+            <div class="countdown" data-countdown></div>
+            <p class="small dim center" style="margin:12px 0 0">Şənbə, 19:00 — komanda onlayn turniri</p>
+          </section>
+        </aside>
+      </div>
+    </main>
+    <footer class="site-foot" id="site-foot"></footer>
+  </div>
+</div>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/app.js"></script>
+<script src="assets/js/home.js"></script>
+</body>
+</html>

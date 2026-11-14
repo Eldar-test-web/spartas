@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="az">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SPARTANS Viktorina</title>
+    <link rel="stylesheet" href="app.css" />
+    <link rel="stylesheet" href="adapt.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div id="home" class="flex-center flex-column">
+        <h1>Klassik Suallar</h1>
+        <p class="tagline">Kateqoriya və sual sayını seç — hər doğru cavab 10 xaldır.</p>
+        <div class="picker">
+          <label for="cat">Kateqoriya</label>
+          <select id="cat">
+            <option value="Hamısı">Hamısı</option>
+            <option>Tarix</option>
+            <option>Coğrafiya</option>
+            <option>Elm</option>
+            <option>Mədəniyyət</option>
+            <option>İdman</option>
+            <option>Məntiq</option>
+          </select>
+          <label for="n">Sual sayı</label>
+          <select id="n">
+            <option>5</option>
+            <option selected>10</option>
+            <option>15</option>
+          </select>
+        </div>
+        <a class="btn" id="playBtn" href="game.html">Oyuna başla</a>
+        <a class="btn btn-alt" href="highscores.html">Rekordlar</a>
+      </div>
+    </div>
+    <script>
+      const link = document.getElementById("playBtn");
+      const update = () => {
+        link.href = `game.html?cat=${encodeURIComponent(document.getElementById("cat").value)}&n=${document.getElementById("n").value}`;
+      };
+      document.getElementById("cat").addEventListener("change", update);
+      document.getElementById("n").addEventListener("change", update);
+      update();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="az">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ölçü Tahmini — SPARTANS</title>
+<meta name="description" content="Size It Up formatında intellektual oyun: siluetə və insan rəqəminə baxaraq obyektin hündürlüyünü təxmin et. 5 raund, maksimum 500 xal.">
+<meta name="theme-color" content="#0D6940">
+<link rel="icon" href="assets/img/favicon.png" sizes="48x48" type="image/png">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body data-page="olcu">
+<a class="skip-link" href="#main">Əsas mətnə keç</a>
+<div class="layout">
+  <aside class="sidebar" id="sidebar"></aside>
+  <div class="main-col">
+    <header class="topbar" id="topbar"></header>
+    <main id="main">
+      <div class="page-head">
+        <p class="eyebrow">Oyun 03 · Ölçək</p>
+        <h1>Ölçü Tahmini</h1>
+        <p class="lead">Siluet həqiqi ölçək üzərində çəkilib — yanındakı insan rəqəmi 1,7 m hündürlükdədir.
+          Obyektin real hündürlüyünü təxmin et. 5 raund, hər raund maksimum 100 xal.</p>
+      </div>
+
+      <div class="grid" style="grid-template-columns:minmax(0,1fr) 320px;align-items:start">
+        <section class="card">
+          <div class="rounds" id="rounds" style="margin-bottom:16px"></div>
+          <div class="size-stage" id="stage">
+            <div class="ground"></div>
+          </div>
+          <div class="slider-row mt">
+            <span class="small dim nowrap">1 m</span>
+            <input type="range" id="slider" min="0" max="1000" step="1" value="400" aria-label="Hündürlük təxmini">
+            <span class="small dim nowrap">900 m</span>
+            <span class="readout" id="readout">—</span>
+          </div>
+          <div class="row mt">
+            <button class="btn btn-primary" id="lockBtn" type="button">Təsdiq et</button>
+            <button class="btn btn-ghost" id="nextBtn" type="button" style="display:none">Növbəti raund →</button>
+            <span class="small dim" id="feedback"></span>
+          </div>
+          <div id="reveal"></div>
+        </section>
+
+        <aside class="rail">
+          <section class="card">
+            <h2>Bu oyunun nəticəsi</h2>
+            <div class="grid g2" id="scoreBox"></div>
+          </section>
+          <section class="card">
+            <h3>Qaydalar</h3>
+            <p class="small muted">
+              Tam uyğunluq — 100 xal.<br>
+              Təxminin real hündürlükdən 2 dəfəyə qədər səhv olarsa, xal azalır.<br>
+              2,2 dəfədən çox səhv — 0 xal.<br>
+              Hər raund müstəqil qiymətləndirilir.
+            </p>
+            <p class="small dim">Sual: <b style="color:var(--mint)">nə qədər yaxın</b> təxmin etdiyin vacibdir, dəqiq rəqəm yox.</p>
+          </section>
+          <section class="card">
+            <h3>Digər oyunlar</h3>
+            <div class="row" id="otherGames"></div>
+          </section>
+        </aside>
+      </div>
+    </main>
+    <footer class="site-foot" id="site-foot"></footer>
+  </div>
+</div>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/app.js"></script>
+<script src="assets/js/size.js"></script>
+</body>
+</html>

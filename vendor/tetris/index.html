@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="az">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Tetris — SPARTANS Mini Oyun</title>
+        <link rel='stylesheet' href='style.css' />
+        <link rel='stylesheet' href='adapt.css' />
+    </head>
+    <body>
+        <audio id="clearsound" src="sound/pop.ogg" preload="auto"></audio>
+        <p class="hint">Ox düymələri — sürüşdür · <b>Yuxarı</b> — fırlat · <b>Boşluq</b> — aşağı burax</p>
+        <canvas width='300' height='600'></canvas>
+        <button id="playbutton" onclick="playButtonClicked();">Başla</button>
+        <script src='js/tetris.js'></script>
+        <script src='js/controller.js'></script>
+        <script src='js/render.js'></script>
+        <script src='bridge.js'></script>
+    </body>
+</html>

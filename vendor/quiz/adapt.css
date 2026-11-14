@@ -1,0 +1,52 @@
+/* SPARTANS palette override for the vendored quiz app (upstream app.css/game.css qalır).
+   Rənglər: #0D6940 + #6FFFBE. */
+
+:root {
+  --deep: #0d6940;
+  --mint: #6fffbe;
+  --bg: #04120c;
+  --panel: #08221a;
+  --line: rgba(111, 255, 190, .18);
+  --text: #e8fff6;
+  --muted: #8ec7ae;
+}
+
+body { background: radial-gradient(700px 420px at 50% -10%, rgba(13, 105, 64, .5), transparent 60%), var(--bg) !important; color: var(--text) !important; font-family: system-ui, "Segoe UI", Roboto, Arial, sans-serif !important; }
+
+h1 { color: var(--mint); text-transform: none; letter-spacing: -.01em; }
+.tagline { color: var(--muted); margin: -6px 0 18px; }
+
+.btn {
+  background: var(--deep); color: #eafff5; border: 1px solid var(--line);
+  border-radius: 999px; padding: 12px 26px; font-weight: 700; text-decoration: none;
+}
+.btn:hover { background: #12875a; border-color: var(--mint); }
+.btn-alt { background: var(--panel); color: var(--mint); }
+
+.choice-container .choice-text {
+  background: var(--panel); color: var(--text); border: 1px solid var(--line); border-radius: 12px;
+}
+.choice-container .choice-text:hover { background: #0d2f23; border-color: var(--mint); color: var(--mint); }
+.choice-prefix { color: var(--mint); background: var(--deep-3, #073a25); border-radius: 8px; }
+.correct { background: var(--mint) !important; color: #04120c !important; }
+.incorrect { background: #3a1414 !important; color: #ffd9d3 !important; }
+
+.hud-prefix { color: var(--muted); }
+.hud-main-text { color: var(--mint); }
+#progressBar { background: #0c231a; border: 1px solid var(--line); }
+#progressBarFull { background: linear-gradient(90deg, var(--deep), var(--mint)); }
+
+.explain {
+  margin-top: 16px; padding: 12px 16px; border-left: 3px solid var(--mint);
+  background: rgba(13, 105, 64, .22); color: var(--text); border-radius: 0 10px 10px 0; font-size: 14px;
+}
+
+.picker { display: grid; grid-template-columns: auto 1fr; gap: 8px 12px; align-items: center; margin-bottom: 18px; width: min(340px, 80vw); }
+.picker label { color: var(--muted); font-size: 12px; letter-spacing: .1em; text-transform: uppercase; }
+.picker select {
+  background: var(--panel); color: var(--text); border: 1px solid var(--line);
+  border-radius: 10px; padding: 9px 12px; width: 100%;
+}
+
+#highScoresList { list-style: none; padding: 0; }
+.high-score { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; margin-bottom: 8px; padding: 10px 16px; }

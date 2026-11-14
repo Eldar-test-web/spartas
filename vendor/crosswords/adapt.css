@@ -1,0 +1,52 @@
+/* SPARTANS palette override for crosswords-js (dist/crosswords.css üstünə yazılır).
+   Rənglər: #0D6940 + #6FFFBE. */
+
+:root {
+  --deep: #0d6940;
+  --mint: #6fffbe;
+  --bg: #04120c;
+  --panel: #08221a;
+  --line: rgba(111, 255, 190, .18);
+  --text: #e8fff6;
+  --muted: #8ec7ae;
+}
+
+html, body { background: var(--bg); color: var(--text); margin: 0; padding: 0 0 24px; font-family: system-ui, "Segoe UI", Roboto, Arial, sans-serif; }
+
+.cw-toolbar {
+  display: flex; flex-wrap: wrap; gap: 8px; padding: 14px; position: sticky; top: 0; z-index: 5;
+  background: rgba(4, 18, 12, .92); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line);
+}
+.cw-toolbar button {
+  background: var(--panel); color: var(--mint); border: 1px solid var(--line);
+  border-radius: 999px; padding: 8px 14px; font-size: 13px; font-weight: 700; cursor: pointer;
+}
+.cw-toolbar button:hover { border-color: var(--mint); background: #0d2f23; }
+
+.cw-layout { display: grid; grid-template-columns: minmax(0, 1fr) minmax(280px, 420px); gap: 20px; padding: 18px; align-items: start; }
+.cw-grid-wrap { overflow: auto; }
+.cw-clues-wrap { max-height: 70vh; overflow: auto; padding-right: 6px; }
+
+.crossword-grid { background: var(--bg); }
+.crossword-grid .cwcell {
+  background: #0c231a; color: var(--text); border: 1px solid #17382b; font-weight: 700;
+}
+.crossword-grid .cwcell.highlighted,
+.crossword-grid .cwcell.current-clue-segment { background: var(--deep); color: #eafff5; border-color: var(--mint); }
+.crossword-grid .cwcell.cwcell-incorrect { color: #ff9b8c; background: #2a1310; }
+.crossword-grid .cwcell.cwcell-revealed { color: var(--mint); }
+.crossword-grid .block { background: var(--bg); }
+
+.crossword-clues { background: transparent; color: var(--text); }
+.crossword-clues .crossword-clue { border-bottom: 1px dashed var(--line); }
+.crossword-clues .crossword-clue.active { background: #0b2c21; border-radius: 8px; }
+.crossword-clues .crossword-clue-label { color: var(--mint); font-weight: 800; }
+.crossword-clues .crossword-clue-text { color: var(--text); }
+.crossword-clues h2 { color: var(--mint); font-size: 15px; letter-spacing: .12em; text-transform: uppercase; }
+
+.cw-status { padding: 0 18px; color: var(--muted); font-size: 13px; }
+
+@media (max-width: 900px) {
+  .cw-layout { grid-template-columns: minmax(0, 1fr); }
+  .cw-clues-wrap { max-height: none; }
+}

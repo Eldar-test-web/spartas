@@ -1,0 +1,90 @@
+/* SPARTANS — naviqasiya səhifələrinin komponentləri (Laconic dizayn sistemi üzərində) */
+
+.page-head .lead { max-width: 70ch; }
+.stats-row { display: flex; flex-wrap: wrap; gap: 0; margin-top: 22px; }
+
+/* Siyahılar */
+.tick-list, .rule-list, .team-list { margin: 12px 0 0; padding: 0; list-style: none; display: grid; gap: 0; }
+.tick-list li, .rule-list li {
+  position: relative; padding: 9px 0 9px 24px; color: var(--stone); font-size: 14.5px;
+  border-bottom: 1px solid var(--line);
+}
+.tick-list li:last-child, .rule-list li:last-child { border-bottom: 0; }
+.tick-list li::before {
+  content: ""; position: absolute; left: 0; top: 15px; width: 12px; height: 12px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%236FFFBE' stroke-width='3'%3E%3Cpath d='m5 12.4 4.6 4.6L19 7'/%3E%3C/svg%3E") center/contain no-repeat;
+}
+.rule-list li { padding-left: 16px; border-left: 2px solid var(--deep); }
+.rule-list li b { color: var(--text); font-family: var(--f-display); font-weight: 500; letter-spacing: .02em; }
+.team-list li {
+  display: flex; justify-content: space-between; gap: 14px; padding: 9px 0;
+  border-bottom: 1px solid var(--line); color: var(--stone); font-size: 14.5px;
+}
+.team-list li:last-child { border-bottom: 0; }
+.team-list b { color: var(--text); font-family: var(--f-display); font-weight: 500; letter-spacing: .03em; }
+
+.note-card { border-left: 2px solid var(--mint); border-radius: 0; background: var(--bg-soft); }
+.note-card h2 { margin: 0 0 6px; font-size: 14px; letter-spacing: .16em; text-transform: uppercase; color: var(--stone); }
+.note-card p { margin: 0; color: var(--stone); }
+
+/* Suallar bankı */
+.filter-card { display: grid; gap: 16px; margin-bottom: 22px; padding: 20px 22px; }
+.filter-card .field { margin: 0; }
+.chip-row { flex-wrap: wrap; gap: 6px; }
+.chip-row .chip { cursor: pointer; border-color: var(--line); color: var(--stone); background: transparent; }
+.chip-row .chip:hover { border-color: var(--line-mint); color: var(--mint); }
+.chip-row .chip:not(.chip-neutral) { border-color: var(--mint); color: var(--mint-ink); background: var(--mint); }
+.q-card-col { display: flex; flex-direction: column; gap: 12px; padding: 20px 22px; }
+.q-title { margin: 0; font-size: 17px; line-height: 1.45; font-family: var(--f-body); font-weight: 600; letter-spacing: 0; }
+.q-opts { margin: 0; padding: 0; list-style: none; display: grid; gap: 1px; background: var(--line); border: 1px solid var(--line); }
+.q-opts li { padding: 9px 12px; background: var(--bg-soft); font-size: 14.5px; color: var(--stone); }
+.q-opts li.is-right { background: var(--deep); color: var(--text); border-left: 2px solid var(--mint); }
+.q-note summary { cursor: pointer; color: var(--stone-dim); font-family: var(--f-display); font-size: 12px; letter-spacing: .12em; text-transform: uppercase; }
+.q-note p { margin: 8px 0 0; color: var(--stone); font-size: 14.5px; }
+
+/* Liderlər */
+.lb-team { display: inline-flex; align-items: center; gap: 10px; font-family: var(--f-display); font-weight: 500; font-size: 16px; letter-spacing: .03em; }
+.lb-team svg { width: 17px; height: 17px; color: var(--mint); }
+tr.is-you td { background: rgba(13, 105, 64, .22); }
+table.tbl .progress { display: block; min-width: 90px; }
+
+/* Komandalar */
+.team-card { display: flex; flex-direction: column; gap: 12px; padding: 20px 22px; }
+.team-card h3 { margin: 0; font-size: 20px; letter-spacing: .04em; text-transform: uppercase; }
+.team-card > .row { align-items: flex-start; }
+.team-mark { display: grid; place-items: center; width: 40px; height: 40px; border-radius: var(--radius-sm); background: var(--deep-3); border: 1px solid var(--line); color: var(--mint); }
+.team-mark svg { width: 20px; height: 20px; }
+.team-people { display: flex; flex-wrap: wrap; gap: 5px; }
+.team-people .avatar { background: transparent; border-color: var(--line-2); color: var(--stone); }
+.avatar-sm { width: 24px; height: 24px; font-size: 11px; border-radius: 3px; }
+.avatar-lg { width: 58px; height: 58px; font-size: 22px; border-radius: var(--radius); }
+.chip-big { font-size: 13px; padding: 6px 12px; }
+
+/* Profil */
+.profile-head { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; padding: 22px; }
+.profile-head > div { flex: 1 1 200px; }
+.profile-head h2 { font-size: 24px; text-transform: uppercase; letter-spacing: .04em; }
+.profile-head p { margin: 2px 0 0; }
+.danger-zone { border-color: rgba(228, 121, 106, .4); }
+.btn-warn { background: transparent; border-color: rgba(228, 121, 106, .5); color: var(--bad); }
+.btn-warn:hover { background: rgba(228, 121, 106, .12); border-color: var(--bad); color: var(--bad); }
+
+/* Giriş */
+.login-wrap { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 22px; align-items: start; }
+.why-card h2 { margin: 0 0 4px; font-size: 14px; letter-spacing: .16em; text-transform: uppercase; color: var(--stone); }
+
+/* 404 */
+.error-card { padding: 56px 24px; border-radius: var(--radius); }
+.error-card h1 { font-size: 72px; margin: 0; color: var(--mint); letter-spacing: .06em; }
+.error-card .game-icon { margin: 0 auto 10px; }
+.card.center .game-icon { margin: 0 auto 12px; }
+
+@media (max-width: 900px) {
+  .login-wrap { grid-template-columns: 1fr; }
+  .grid.g4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 640px) {
+  .grid.g2, .grid.g3, .grid.g4 { grid-template-columns: 1fr; }
+  .stats-row .stat { border-right: 0; }
+}

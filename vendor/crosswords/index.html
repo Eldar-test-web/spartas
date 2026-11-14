@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="az">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SPARTANS Krossvord</title>
+<link rel="stylesheet" href="dist/crosswords.css">
+<link rel="stylesheet" href="adapt.css">
+<script src="puzzle.js"></script>
+</head>
+<body>
+  <div class="cw-toolbar">
+    <button id="test-clue" type="button">Sualı yoxla</button>
+    <button id="clean-clue" type="button">Səhvləri sil</button>
+    <button id="reveal-cell" type="button">Hərf aç</button>
+    <button id="reveal-clue" type="button">Sözü aç</button>
+    <button id="reset-clue" type="button">Sualı təmizlə</button>
+    <button id="test-crossword" type="button">Şəbəkəni yoxla</button>
+    <button id="clean-crossword" type="button">Bütün səhvləri sil</button>
+    <button id="reset-crossword" type="button">Yenidən başla</button>
+  </div>
+
+  <div class="cw-layout">
+    <div class="cw-grid-wrap"><div id="crossword-grid-placeholder"></div></div>
+    <div class="cw-clues-wrap"><div id="crossword-clues-placeholder"></div></div>
+  </div>
+
+  <p class="cw-status" id="status">Şəbəkə yüklənir…</p>
+
+  <script type="module">
+    import { newCrosswordController } from "./dist/crosswords.js";
+
+    const status = document.getElementById("status");
+    const started = Date.now();
+    let revealed = 0;
+
+    const controller = newCrosswordController(window.SP_PUZZLE,
+      document.getElementById("crossword-grid-placeholder"),
+      document.getElementById("crossword-clues-placeholder"));
+
+    if (!controller?.isValid) {
+      status.textContent = "Şəbəkə yüklənmədi — puzzle.js faylını yoxlayın.";
+      throw new Error("crosswords-js: yararsız tərif");
+    }
+
+    controller.bindUserEventHandlersToIds();
+
+    controller.addEventsListener(["cellRevealed", "clueRevealed", "crosswordRevealed"], () => revealed++);
+
+    controller.addEventsListener(["clueSelected"], (clue) => {
+      status.textContent = `${clue.isAcross ? "Üfüqi" : "Şaquli"} ${clue.headNumber} · ${clue.lengthText}`;
+    });
+
+    controller.addEventsListener(["crosswordSolved"], () => {
+      const minutes = Math.round((Date.now() - started) / 60000);
+      const points = Math.max(40, 100 - revealed * 10 - Math.min(30, minutes));
+      status.textContent = `Şəbəkə tamamlandı · ${minutes} dəqiqə · +${points} xal`;
+      window.parent.postMessage({ type: "spartans:result", game: "crossword", won: true, points, minutes, revealed }, "*");
+    });
+
+    status.textContent = `${window.SP_PUZZLE.acrossClues.length + window.SP_PUZZLE.downClues.length} sual · ${window.SP_PUZZLE.width}×${window.SP_PUZZLE.height} şəbəkə · hücrəyə klikləyib hərf yazın`;
+  </script>
+</body>
+</html>
