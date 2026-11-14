@@ -17,6 +17,9 @@ html, body { background: radial-gradient(720px 420px at 50% -10%, rgba(13, 105, 
 .game-intro { color: var(--muted) !important; }
 .score-container, .best-container { background: var(--panel) !important; color: var(--text) !important; border: 1px solid var(--line); }
 .score-container::after, .best-container::after { background: var(--deep) !important; color: var(--mint) !important; }
+/* upstream bu iki başlığı CSS-də ingiliscə yazıb — vizual olaraq görünən yeganə ingilis mətn */
+.score-container::after { content: "Xal" !important; }
+.best-container::after { content: "Rekord" !important; }
 
 .restart-button, .keep-playing-button, .retry-button {
   background: var(--deep) !important; color: #eafff5 !important; border: 1px solid var(--line); border-radius: 10px;

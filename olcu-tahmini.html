@@ -22,21 +22,25 @@
       <div class="page-head">
         <p class="eyebrow">Oyun 03 · Ölçək</p>
         <h1>Ölçü Tahmini</h1>
-        <p class="lead">Siluet həqiqi ölçək üzərində çəkilib — yanındakı insan rəqəmi 1,7 m hündürlükdədir.
-          Obyektin real hündürlüyünü təxmin et. 5 raund, hər raund maksimum 100 xal.</p>
+        <p class="lead">Siluet həqiqi miqyasda çəkilib: soldakı şkala metrə, yanındakı insan rəqəmi
+          1,7 m-ə bölünür. Təxminin sarı kölgə kimi dərhal səhnədə böyüyür — 5 raund, hər raund maksimum 100 xal.</p>
       </div>
 
       <div class="grid" style="grid-template-columns:minmax(0,1fr) 320px;align-items:start">
         <section class="card">
           <div class="rounds" id="rounds" style="margin-bottom:16px"></div>
-          <div class="size-stage" id="stage">
-            <div class="ground"></div>
-          </div>
-          <div class="slider-row mt">
-            <span class="small dim nowrap">1 m</span>
+          <div class="size-stage" id="stage"></div>
+          <p class="sz-note">Sarı kölgə sənin təxminindir: slideri sürəndə obyektin nüsxəsi böyüyüb kiçilir,
+            üstündəki kəsik xətt təxminin hündürlüyüdür. Yaşıl xətt isə obyektin real hündürlüyünü göstərir.
+            Səhnə avtomatik yaxınlaşır: kölgə obyektə nə qədər yaxın olarsa, təxminin o qədər dəqiqdir.
+            <i>*</i> — 6 px-dən kiçik rəqəm aydın görünsün deyə böyüdülüb.</p>
+          <div class="slider-wrap">
+            <div class="slider-head">
+              <span class="ctl-lab">Təxminin</span>
+              <span class="readout" id="readout">—</span>
+            </div>
             <input type="range" id="slider" min="0" max="1000" step="1" value="400" aria-label="Hündürlük təxmini">
-            <span class="small dim nowrap">900 m</span>
-            <span class="readout" id="readout">—</span>
+            <div class="slider-ticks" id="sliderTicks"></div>
           </div>
           <div class="row mt">
             <button class="btn btn-primary" id="lockBtn" type="button">Təsdiq et</button>
