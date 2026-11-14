@@ -96,6 +96,9 @@ html, body { background: var(--bg); color: var(--text); margin: 0; padding: 0; f
 .crossword-clue:hover { background: rgba(111, 255, 190, .06); }
 .crossword-clues .crossword-clue-label { width: 2rem; flex: 0 0 2rem; text-align: right; color: var(--mint); font-weight: 700; }
 .crossword-clues .crossword-clue-text { display: block; max-width: none; color: var(--text); }
+/* flex item-in "automatic minimum size"ı mətnin eninə bərabərdir — min-width:0 olmadan
+   uzun sual sütundan daşır və iframe-in sağ kənarı kəsir */
+.crossword-clues .crossword-clue-text { flex: 1 1 auto; min-width: 0; }
 .crossword-clues .crossword-clue.current-clue-segment { background: var(--deep); }
 .crossword-clues .crossword-clue.current-clue-segment .crossword-clue-text { color: #f2fffa; font-weight: 600; }
 .crossword-clue-mark { color: var(--muted); }
