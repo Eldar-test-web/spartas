@@ -535,6 +535,19 @@ p.lead { color: var(--stone); font-size: 16.5px; max-width: 66ch; margin: 0; }
   transition: height .62s cubic-bezier(.2, .75, .25, 1), width .62s cubic-bezier(.2, .75, .25, 1), left .62s cubic-bezier(.2, .75, .25, 1);
 }
 .sz-obj svg { display: block; width: 100%; height: 100%; fill: currentColor; }
+/* Yaxınlaşdıqca açılan incə detallar (pəncərə, kərpic, yarpaq, qaya cizgisi) */
+.sz-obj .fine, .sz-person .fine { opacity: var(--detail, 0); transition: opacity .18s linear; }
+.sz-zoom {
+  position: absolute; top: 8px; right: 10px; z-index: 3;
+  font-family: var(--f-display); font-size: 12px; letter-spacing: .08em;
+  color: var(--mint); background: rgba(3, 17, 11, .7);
+  border: 1px solid var(--line-mint); border-radius: 3px; padding: 3px 8px;
+  pointer-events: none;
+}
+/* Dərin yaxınlaşmada obyekt ekranı doldurur — ad və insan rəqəmi solğunlaşır */
+.sz-name, .sz-person { transition: opacity .2s ease; }
+.size-stage:has(.sz-obj.is-zoomed) .sz-name,
+.size-stage:has(.sz-obj.is-zoomed) .sz-person { opacity: .15; }
 .sz-obj::before {
   content: ""; position: absolute; left: -10%; right: -10%; bottom: -7px; height: 13px;
   background: radial-gradient(50% 50% at 50% 50%, rgba(0, 0, 0, .5), rgba(0, 0, 0, 0) 72%);
