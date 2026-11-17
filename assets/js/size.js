@@ -54,7 +54,13 @@
       <path d="M14 54 L17 28 L25 28 L28 54 Z"/><path d="M17 28 L20 4 L23 28 Z"/><rect x="19" y="0" width="2.4" height="7"/>` },
     burc: { vb: 7.2, svg: `<path d="M0.2 100 L0.8 78 L1.6 78 L2 60 L2.6 60 L2.9 42 L3.3 42
       L3.45 22 L3.6 8 L3.7 0 L3.8 8 L3.95 22 L4.1 42 L4.5 42 L4.8 60 L5.4 60
-      L5.8 78 L6.6 78 L7 100 Z"/>` }
+      L5.8 78 L6.6 78 L7 100 Z"/>` },
+    qizqalasi: { vb: 84, svg: `<path d="M18 100 L24 16 L60 16 L66 100 Z"/>
+      <path d="M22 16 L24 8 L30 8 L31 16 Z M38 16 L39 6 L45 6 L46 16 Z M54 16 L55 8 L61 8 L62 16 Z"/>
+      <path d="M30 58 L54 58 L54 62 L30 62 Z" opacity=".5"/>` },
+    alov: { vb: 120, svg: `<path d="M4 100 L14 40 Q20 26 26 42 L36 100 Z"/>
+      <path d="M44 100 L52 22 Q60 4 68 22 L76 100 Z"/>
+      <path d="M84 100 L92 46 Q98 30 104 46 L114 100 Z"/>` }
   };
 
   /* rəqəm: 100 vahid hündürlük = 1,7 m, en 28 vahid = 0,48 m (çiyin eni) */

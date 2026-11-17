@@ -15,7 +15,7 @@ SP.WORDS = {
     "GƏNC", "DİŞİ", "OYUN", "QƏSR", "KƏND", "TƏRƏ", "ÜZÜK", "QƏND", "ƏZİZ", "QAYA",
     "QALA", "SUAL", "DƏRİ", "ARXA", "ÜSTÜ", "QURU", "UZUN", "QISA", "DƏVƏ", "ÜMİD",
     "ARZU", "ALƏM", "MƏTN", "ARAM", "ABRU", "ELMİ", "ÜZÜM", "GƏMİ", "ƏSİR", "XALQ",
-    "ƏMƏK", "DƏFN", "SÜBH", "QƏFL"],
+    "ƏMƏK", "DƏFN", "SÜBH", "QƏFL", "AĞAC", "LALƏ", "TƏZƏ"],
   5: ["KİTAB", "BAHAR", "DƏNİZ", "ÇÖRƏK", "ŞƏKƏR", "SOYUQ", "GƏLİN", "KÜLƏK", "YAĞIŞ", "DUMAN",
     "ULDUZ", "GÜNƏŞ", "VƏTƏN", "BİLİK", "QƏZƏL", "ROMAN", "MİSRA", "BƏYİT", "NAĞMƏ", "SALON",
     "QƏLƏM", "YAŞIL", "QIZIL", "TOYUQ", "BALIQ", "QOYUN", "NÖMRƏ", "CAVAB", "HƏYAT", "QORXU",
@@ -24,22 +24,23 @@ SP.WORDS = {
     "SƏBƏB", "ƏLAVƏ", "ƏSASİ", "MÖVZU", "SƏFƏR", "ŞƏKİL", "QOVUN", "KƏLMƏ", "ÜNVAN", "XƏBƏR",
     "NƏZƏR", "QƏDİM", "SALAM", "DƏYƏR", "ARXİV", "BAĞIŞ", "ORQAN", "SƏNƏD", "GÜMAN", "SƏRAB",
     "YALAN", "DOĞRU", "NÖVBƏ", "ÜMUMİ", "İNSAF", "MƏSUM", "KƏÇƏL", "ƏDƏBİ", "SÜBUT", "VƏZİR",
-    "İCAZƏ", "RADİO"],
+    "İCAZƏ", "RADİO", "ÇİÇƏK", "BULUD", "MAŞIN", "PƏNÇƏ"],
   6: ["GÜNDÜZ", "QARDAŞ", "TƏBİƏT", "DƏFTƏR", "MƏKTƏB", "ŞAGİRD", "DASTAN", "BİLANÇ", "KREDİT", "REKLAM",
     "NÜMUNƏ", "İMTHAN", "MƏQALƏ", "JURNAL", "CƏDVƏL", "BOYNUZ", "TORPAQ", "DÜŞMƏN", "VƏZİFƏ", "HƏMRAH",
     "MAARİF", "TƏHSİL", "SÖHBƏT", "MUSİQİ", "RƏSSAM", "TƏRƏVƏ", "GÜNLÜK", "ŞƏBƏKƏ", "AVRUPA", "QAFQAS",
     "ƏDALƏT", "NƏTİCƏ", "DÖVLƏT", "MƏNZİL", "SƏMİMİ", "DİQQƏT", "BİRLİK", "KAINAT", "YOLDAŞ", "MÜSAVİ",
     "MƏSCİD", "KİLİSƏ", "TƏRTİL", "DƏRGƏH", "MƏKTUB", "RƏFİQƏ", "VİCDAN", "MEYDAN", "ZƏNGİN", "TƏKLİF",
-    "MƏHSUL", "QƏRİBƏ", "MƏDƏNİ", "BAĞBAN", "HƏSSAS", "RÜSXƏT", "MÜASİR", "TİYATR"],
+    "MƏHSUL", "QƏRİBƏ", "MƏDƏNİ", "BAĞBAN", "HƏSSAS", "RÜSXƏT", "MÜASİR", "TİYATR",
+    "SƏHİFƏ", "TƏHLİL", "QƏNAƏT"],
   7: ["MÜƏLLİM", "DANIŞIQ", "MÜŞTERİ", "HESABAT", "VALYUTA", "DEPOZİT", "İQTİSAD", "PƏNCƏRƏ", "YUMURTA", "MƏDRESƏ",
     "CIRTDAN", "SUALLAR", "İMTİHAN", "ƏLYAZMA", "TAPMACA", "SİYASƏT", "PARALEL", "MƏNZƏRƏ", "MAHKAMƏ", "AZADLIQ",
     "TƏCRÜBƏ", "KARYERA", "İMTİTAZ", "İNQİLAB", "ƏHVALAT", "DƏYƏRLİ", "HƏYECAN", "ÜMİDSİZ", "NÜFUZLU", "MİSAFİR",
     "TALİMAT", "ƏMRNAMƏ", "MÜŞAVİR", "SİFARİŞ", "RƏQABƏT", "İNKİŞAF", "ƏMƏKDAŞ", "DOSTLUQ", "BƏDİAHİ", "SESSİYA",
-    "KONSERT"],
+    "KONSERT", "KOMANDA", "TƏHLÜKƏ"],
   8: ["TƏŞKİLAT", "MÜSTƏQİL", "VƏTƏNDAŞ", "SUALNAMƏ", "MEMARLIQ", "MÜSAHİBƏ", "İNTERNET", "KOMPÜTER", "İCTİMAYİ", "İQTİSADİ",
     "CƏMİYYƏT", "HƏMVƏTƏN", "MÜKƏMMƏL", "VƏZİYYƏT", "TƏŞƏKKÜR", "QARŞILIQ", "HÜRRİYƏT", "MÜŞAHİDƏ", "TƏRƏDDÜD", "MƏHSULAT",
     "ARQUMENT", "MÜZAKİRƏ", "MİLLƏTÇİ", "SƏBƏBSİZ", "TƏSADÜFİ", "MÜNAZİRƏ", "MİQYASLI", "ORQANİZM", "MÜHTƏŞƏM", "MƏŞĞULƏT",
-    "QƏHRƏMAN", "SEÇİMLƏR"]
+    "QƏHRƏMAN", "SEÇİMLƏR", "QÜDRƏTLİ", "NƏTİCƏLİ"]
 };
 
 
@@ -91,7 +92,21 @@ SP.QUESTIONS = [
   { c: "Məntiq", d: "Asan", q: "2 + 2 × 2 ifadəsinin qiyməti neçədir?", o: ["4", "6", "8", "10"], a: 1, x: "Əvvəlcə vurma: 2 × 2 = 4, sonra 2 + 4 = 6." },
   { c: "Məntiq", d: "Orta", q: "Bir həftədə 3 gün keçsə, həftənin neçə günü qalır?", o: ["3", "4", "5", "6"], a: 1, x: "7 − 3 = 4 gün." },
   { c: "Məntiq", d: "Çətin", q: "100 ədədinin 12%-i neçədir?", o: ["8", "10", "12", "14"], a: 2, x: "100 × 0,12 = 12." },
-  { c: "Məntiq", d: "Çətin", q: "5 nəfər bir-biri ilə əl sıxsa, neçə əl sıxma olur?", o: ["10", "15", "20", "25"], a: 0, x: "C(5,2) = 5 × 4 / 2 = 10 əl sıxma." }
+  { c: "Məntiq", d: "Çətin", q: "5 nəfər bir-biri ilə əl sıxsa, neçə əl sıxma olur?", o: ["10", "15", "20", "25"], a: 0, x: "C(5,2) = 5 × 4 / 2 = 10 əl sıxma." },
+
+  /* ---------- Azərbaycana dair əlavə suallar ---------- */
+  { c: "Mədəniyyət", d: "Asan", q: "Qız Qalası hansı şəhərdə yerləşir?", o: ["Gəncə", "Bakı", "Naxçıvan", "Qəbələ"], a: 1, x: "Qız Qalası Bakının İçərişəhərində yerləşir." },
+  { c: "Mədəniyyət", d: "Asan", q: "Azərbaycanın dövlət himninin musiqisini kim bəstələyib?", o: ["Üzeyir Hacıbəyov", "Qara Qarayev", "Fikrət Əmirov", "Niyazi"], a: 0, x: "Himnin musiqisi Üzeyir Hacıbəyovundur." },
+  { c: "Mədəniyyət", d: "Orta", q: "Leyli və Məcnun — Azərbaycanın ilk milli operası. Onu kim yazıb?", o: ["Üzeyir Hacıbəyov", "Müslüm Maqomayev", "Qara Qarayev", "Solomon Rəxlin"], a: 0, x: "Opera 1908-ci ildə Üzeyir Hacıbəyov tərəfindən yazılmışdır." },
+  { c: "Mədəniyyət", d: "Orta", q: "Azərbaycan xalçatoxuma sənəti hansı sənət növünə aiddir?", o: ["Təsviri sənət", "Dekorativ-tətbiqi sənət", "Memarlıq", "Heykəltəraşlıq"], a: 1, x: "Xalçatoxuma dekorativ-tətbiqi sənətin ən qədim növlərindəndir." },
+  { c: "Tarix", d: "Asan", q: "Azərbaycan müstəqilliyini hansı ildə bərpa etdi?", o: ["1989", "1991", "1995", "2001"], a: 1, x: "30 avqust 1991-ci ildə müstəqillik elan olundu." },
+  { c: "Tarix", d: "Orta", q: "Azərbaycan Xalq Cümhuriyyətinin ilk baş naziri kim olub?", o: ["Məhəmməd Əmin Rəsulzadə", "Fətəli xan Xoyski", "Əlimərdan Topçubaşov", "Nuru paşa"], a: 1, x: "Fətəli xan Xoyski 1918-ci ildə ilk hökuməti qurdu." },
+  { c: "Coğrafiya", d: "Asan", q: "Azərbaycanın ən böyük şəhəri hansıdır?", o: ["Sumqayıt", "Gəncə", "Bakı", "Mingəçevir"], a: 2, x: "Bakı ölkənin ən böyük şəhəri və paytaxtıdır." },
+  { c: "Coğrafiya", d: "Orta", q: "Naxçıvan Muxtar Respublikasının paytaxtı hansı şəhərdir?", o: ["Ordubad", "Culfa", "Naxçıvan", "Şahbuz"], a: 2, x: "Muxtar respublikanın paytaxtı Naxçıvan şəhəridir." },
+  { c: "Coğrafiya", d: "Orta", q: "Azərbaycanın ən böyük su anbarı hansıdır?", o: ["Mingəçevir", "Sərsəng", "Tərtər", "Qanıx"], a: 0, x: "Mingəçevir su anbarı Kür çayı üzərində ən böyük su anbarıdır." },
+  { c: "Elm", d: "Orta", q: "Yanar Dağ hansı rayonda yerləşir?", o: ["Abşeron", "Quba", "Lənkəran", "Zaqatala"], a: 0, x: "Yanar Dağ Bakı yaxınlığında, Abşeron yarımadasındadır." },
+  { c: "Elm", d: "Orta", q: "Azərbaycan Konservatoriyası hansı ildə açıldı?", o: ["1918", "1921", "1929", "1940"], a: 2, x: "Konservatoriya 1929-cu ildə Üzeyir Hacıbəyovun təşəbbüsü ilə açıldı." },
+  { c: "İdman", d: "Orta", q: "Güləş Azərbaycanda hansı növ idman sayılır?", o: ["Yeni", "Ənənəvi", "Qadağan", "Yalnız qadın"], a: 1, x: "Güləş Azərbaycanda əsrlərdir yayılmış ənənəvi idman növüdür." }
 ];
 
 /* ---------- Fermi təxminləri ---------- */
@@ -106,7 +121,10 @@ SP.FERMI = [
   { q: "Azərbaycan əhalisi təqribən neçə nəfərdir?", unit: "nəfər", o: [5e6, 1e7, 2e7, 4e7], a: 1, x: "Son rəqəmlərə görə ≈10 milyon nəfər." },
   { q: "Başda təqribən neçə saç teli var?", unit: "tel", o: [1e4, 1e5, 1e6, 1e7], a: 1, x: "Orta hesabla 100 000 tel." },
   { q: "Yer planeti təqribən neçə ildir mövcuddur?", unit: "il", o: [4.5e8, 4.5e9, 4.5e10, 4.5e11], a: 1, x: "≈4,5 milyard il." },
-  { q: "Bir işıq ili təqribən neçə kilometr edir?", unit: "km", o: [9.5e6, 9.5e9, 9.5e12, 9.5e15], a: 2, x: "≈9,5 trilyon km (işıq sürəti × bir ildəki saniyə sayı)." }
+  { q: "Bir işıq ili təqribən neçə kilometr edir?", unit: "km", o: [9.5e6, 9.5e9, 9.5e12, 9.5e15], a: 2, x: "≈9,5 trilyon km (işıq sürəti × bir ildəki saniyə sayı)." },
+  { q: "Azərbaycanın ərazisi təqribən neçə kvadrat kilometrdir?", unit: "km²", o: [8.66e4, 8.66e5, 8.66e6, 8.66e7], a: 0, x: "Azərbaycanın ərazisi ≈86 600 km²-dir." },
+  { q: "Bakının əhalisi təqribən neçə nəfərdir?", unit: "nəfər", o: [5e5, 1e6, 2.3e6, 1e7], a: 2, x: "Bakıda ≈2,3 milyon nəfər yaşayır." },
+  { q: "Xəzər dənizinin ən dərin yeri təqribən neçə metrdir?", unit: "m", o: [100, 500, 1025, 5000], a: 2, x: "Xəzərin ən dərin yeri ≈1025 m-dir." }
 ];
 
 /* ---------- Ölçü Tahmini (Size It Up) obyektləri ---------- */
@@ -124,7 +142,9 @@ SP.SIZES = [
   { id: "bigben", name: "Elizabet qülləsi", h: 96, note: "Westminster sarayının saat qülləsi (Big Ben)." },
   { id: "piramida", name: "Keops piramidası", h: 139, note: "Giza böyük piramidasının indiki hündürlüyü." },
   { id: "eyfel", name: "Eyfel qülləsi", h: 330, note: "Antennalarla birlikdə tam hündürlük." },
-  { id: "burc", name: "Burc Xəlifə", h: 828, note: "Dünyanın ən hündür binası." }
+  { id: "burc", name: "Burc Xəlifə", h: 828, note: "Dünyanın ən hündür binası." },
+  { id: "qizqalasi", name: "Qız Qalası", h: 38, note: "Bakı, İçərişəhər — təqribən VIII əsr." },
+  { id: "alov", name: "Alov qüllələri", h: 190, note: "Bakının ən hündür qüllələri (2012)." }
 ];
 SP.HUMAN_H = 1.7;
 
@@ -141,7 +161,11 @@ SP.RIDDLES = [
   { q: "Həmişə gəlir, amma heç vaxt çatmır. Nədir?", a: "Gələcək", x: "Sabah həmişə bir gün sonra qalır." },
   { q: "Dörd ayağı var, gəzə bilmir — nədir?", a: "Stol", x: "Ayaqları var, amma yeriniyə qalır." },
   { q: "Hansı su içilmir?", a: "Göz yaşı", x: "Su kimi axır, amma içilən deyil." },
-  { q: "Sən getdikcə arxada qalır, amma heç vaxt çatmır — nədir?", a: "Üfüq", x: "Nə qədər yaxınlaşsan da, eyni məsafədə qalır." }
+  { q: "Sən getdikcə arxada qalır, amma heç vaxt çatmır — nədir?", a: "Üfüq", x: "Nə qədər yaxınlaşsan da, eyni məsafədə qalır." },
+  { q: "Gözü var, görməz — nədir?", a: "İynə", x: "İynənin gözü sap keçirmək üçün deşikdir." },
+  { q: "Atamın atası mənim nəyim olur?", a: "Baba", x: "Atanın atası baba adlanır." },
+  { q: "Nə qədər getsən də, sonuna çata bilməzsən — nədir?", a: "Yol", x: "Yol getdikcə davam edir." },
+  { q: "Danışdıqca çoxalır, susdurduqca azalır — nədir?", a: "Söz", x: "Söz danışıldıqca yayılır." }
 ];
 
 /* ---------- Komandalar və liderlər ---------- */
