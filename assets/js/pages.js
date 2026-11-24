@@ -1,7 +1,7 @@
 /* SPARTANS — statik səhifələrin renderinqi (oyunlar, suallar, liderlər, komandalar, profil, giriş) */
 
 const BADGES = {
-  "wordle-ilk": { t: "İlk Wordle", i: "wordle", d: "İlk Wordle oyununu başa çatdır" },
+  "wordle-ilk": { t: "İlk Söz Təxmini", i: "wordle", d: "İlk Söz Təxmini oyununu başa çatdır" },
   "yuz-xal": { t: "100 xal", i: "trophy", d: "Ümumi 100 xala çat" },
   "bes-yuz": { t: "500 xal", i: "medal", d: "Ümumi 500 xala çat" },
   "on-tur": { t: "10 tur", i: "flag", d: "10 oyun nəticəsi topla" },
@@ -11,7 +11,7 @@ const BADGES = {
 };
 
 const GAME_SCORE_RULES = [
-  ["İntellektual Wordle", "Hər təsadə cəhd azaldıqca xal artır: 6 cəhdlə tapılan söz 10, birinci cəhdlə tapılan 60 xal."],
+  ["Söz Təxmini", "Hər təsadə cəhd azaldıqca xal artır: 6 cəhdlə tapılan söz 10, birinci cəhdlə tapılan 60 xal."],
   ["Krossvord", "Tamamlanmış şəbəkə 100 xaldan başlayır: açılan hər hücrə −10, işlədilən hər dəqiqə −1 (ən çoxu −30)."],
   ["Ölçü Tahmini", "5 raund, hər raundda ən çoxu 100 xal. Klub cədvəlinə orta nəticə yazılır (ən çoxu 100)."],
   ["Fermi Tahmini", "Hər doğru variant 10 xal — 8 sualdən ən çoxu 80 xal."],

@@ -46,7 +46,7 @@ SP.WORDS = {
 
 SP.WORD_HINTS = {
   4: "Qısa, gündəlik söz. Diqqətli ol — hər hərfin yeri vacibdir.",
-  5: "Klassik Wordle ölçüsü: 5 hərf.",
+  5: "Klassik 5 hərfli rejim.",
   6: "Altı hərf — iki-üç cəhddən sonra ritmi tapacaqsan.",
   7: "Yeddi hərfli söz adətən bir anlayışı ifadə edir.",
   8: "Səkkiz hərf — ən çətin rejim. Səbirlə hərəkət et."
@@ -323,7 +323,7 @@ SP.DIFFS = ["Asan", "Orta", "Çətin"];
 
 /* ---------- Oyun siyahısı (Oyunlar bölməsi üçün) ---------- */
 SP.GAMES = [
-  { key: "wordle", href: "wordle.html", title: "İntellektual Wordle", icon: "wordle", desc: "4, 5, 6, 7, 8 hərfli Azərbaycan sözlərini 6 cəhddə tap.", tag: "Gündəlik" },
+  { key: "wordle", href: "wordle.html", title: "Söz Təxmini", icon: "wordle", desc: "4, 5, 6, 7, 8 hərfli Azərbaycan sözlərini 6 cəhddə tap.", tag: "Gündəlik" },
   { key: "krossvord", href: "krossvord.html", title: "Krossvord", icon: "cross", desc: "26 şaquli və üfüqi sualdən ibarət klassik şəbəkə.", tag: "" },
   { key: "olcu", href: "olcu-tahmini.html", title: "Ölçü Tahmini", icon: "ruler", desc: "Siluetə bax, hündürlüyü təxmin et — 5 raund, 500 xal.", tag: "" },
   { key: "fermi", href: "fermi-tahmini.html", title: "Fermi Tahmini", icon: "calc", desc: "Raqəmi təxmin etməyi tələb edən suallar.", tag: "" },

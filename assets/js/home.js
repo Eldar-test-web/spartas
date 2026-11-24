@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
     </a>`).join("");
 
   const latest = [
-    { t: "İntellektual Wordle", s: "5 hərfli söz. Təxmin et: _ _ _ _ _", h: "wordle.html", i: "wordle", tag: "Gündəlik" },
+    { t: "Söz Təxmini", s: "5 hərfli söz. Təxmin et: _ _ _ _ _", h: "wordle.html", i: "wordle", tag: "Gündəlik" },
     { t: "Krossvord", s: "26 sual, 17×17 şəbəkə — bu gün şəbəkəni tamamla.", h: "krossvord.html", i: "cross", tag: "Yeni" },
     { t: "Ölçü Tahmini", s: `${SP.pickDaily(SP.SIZES, "sz").name} neçə metr hündürlükdədir?`, h: "olcu-tahmini.html", i: "ruler", tag: "Yeni" },
     { t: "Fermi Tahmini", s: SP.pickDaily(SP.FERMI, "fe").q, h: "fermi-tahmini.html", i: "calc", tag: "" },

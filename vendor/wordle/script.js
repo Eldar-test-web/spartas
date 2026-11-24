@@ -218,5 +218,5 @@ function danceTiles(tiles) {
 function report(won, points, attempts) {
   const payload = { type: "spartans:result", game: "wordle", won, points, attempts, len: WORD_LENGTH, mode: MODE };
   try { window.parent.postMessage(payload, "*"); } catch (_) { /* birbaşa açılsa səssiz keçir */ }
-  document.title = won ? `İntellektual Wordle · +${points} xal` : "İntellektual Wordle · tur bitdi";
+  document.title = won ? `Söz Təxmini · +${points} xal` : "Söz Təxmini · tur bitdi";
 }

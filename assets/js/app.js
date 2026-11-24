@@ -96,7 +96,7 @@ SP.NAV = [
   { href: "komandalar.html", label: "Komandalar", icon: "teams", key: "komandalar" },
   { href: "profil.html", label: "Profil", icon: "user", key: "profil" },
   { group: "Oyunlar" },
-  { href: "wordle.html", label: "İntellektual Wordle", icon: "wordle", key: "wordle" },
+  { href: "wordle.html", label: "Söz Təxmini", icon: "wordle", key: "wordle" },
   { href: "krossvord.html", label: "Krossvord", icon: "cross", key: "krossvord" },
   { href: "olcu-tahmini.html", label: "Ölçü Tahmini", icon: "ruler", key: "olcu" },
   { href: "olcu-qalereya.html", label: "Ölçü Qalereyası", icon: "ruler", key: "olcu-qalereya" },
