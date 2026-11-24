@@ -201,6 +201,8 @@ code { font-family: var(--f-mono); font-size: .86em; background: var(--panel-2);
 .menu-btn { display: none; }
 
 main { padding: var(--gutter); flex: 1 1 auto; }
+body[data-page="index"] main { padding: var(--gutter) 0 0; }
+body[data-page="index"] .hero { border-left: 0; border-right: 0; border-radius: 0; }
 
 /* ---------- tipografiya ---------- */
 
