@@ -122,7 +122,7 @@ SP.renderShell = () => {
       <a class="brand" href="index.html">
         <img src="assets/img/logo-mark-mint.png" alt="SPARTANS emblem — Spartan dəyənəyi" width="74" height="74">
         <span class="brand-name">SPARTANS</span>
-        <span class="brand-sub">İntellektual oyunlar klubu</span>
+        <span class="brand-sub">İntellektual oyunlar klubu......</span>
       </a>
       <nav class="nav" aria-label="Əsas naviqasiya">${navHtml}</nav>
       <div class="side-foot">
