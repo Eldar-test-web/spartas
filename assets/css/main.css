@@ -386,7 +386,11 @@ p.lead { color: var(--stone); font-size: 16.5px; max-width: 66ch; margin: 0; }
 .hero p { color: #cfe7d8; margin: 0 0 24px; font-size: 17px; max-width: 46ch; }
 .hero .eyebrow {
   font-size: 18px; letter-spacing: .04em; text-transform: none;
-  font-weight: 600; margin-bottom: 0;
+  font-weight: 600; margin-bottom: 10px;
+}
+.hero .hero-tagline {
+  margin: 0; color: #fff;
+  font: italic 400 17px/1.55 "Bitter", serif;
 }
 .hero .hero-rule { width: 60px; height: 2px; background: var(--mint); margin: 0 0 18px; }
 
