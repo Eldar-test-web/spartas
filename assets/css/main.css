@@ -360,7 +360,7 @@ p.lead { color: var(--stone); font-size: 16.5px; max-width: 66ch; margin: 0; }
 
 /* ---------- ana səhifə ---------- */
 
-.home-grid { display: grid; grid-template-columns: minmax(0, 1fr) var(--rail); gap: 30px; align-items: start; }
+.home-grid { display: grid; grid-template-columns: minmax(0, 1fr); align-items: start; }
 
 .hero {
   position: relative; overflow: hidden; border: 1px solid var(--line-2); border-radius: var(--radius);

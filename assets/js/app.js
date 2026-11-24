@@ -90,12 +90,12 @@ SP.pickDaily = (list, salt = "") => list[SP.dayIndex(salt) % list.length];
 SP.NAV = [
   { group: "Əsas" },
   { href: "index.html", label: "Ana səhifə", icon: "home", key: "index" },
-  { href: "oyunlar.html", label: "Oyunlar", icon: "games", key: "oyunlar" },
+  { href: "oyunlar.html", label: "Yarışlar", icon: "games", key: "oyunlar" },
   { href: "suallar.html", label: "Suallar", icon: "questions", key: "suallar" },
   { href: "liderler.html", label: "Liderlər", icon: "trophy", key: "liderler" },
   { href: "komandalar.html", label: "Komandalar", icon: "teams", key: "komandalar" },
   { href: "profil.html", label: "Profil", icon: "user", key: "profil" },
-  { group: "Oyunlar" },
+  { group: "Yarışlar" },
   { href: "wordle.html", label: "Söz Təxmini", icon: "wordle", key: "wordle" },
   { href: "krossvord.html", label: "Krossvord", icon: "cross", key: "krossvord" },
   { href: "olcu-tahmini.html", label: "Ölçü Tahmini", icon: "ruler", key: "olcu" },
@@ -107,8 +107,6 @@ SP.NAV = [
 
 SP.renderShell = () => {
   const page = document.body.dataset.page || "index";
-  const st = SP.load();
-  const u = st.user;
 
   const navHtml = SP.NAV.map((n) =>
     n.group
@@ -140,13 +138,7 @@ SP.renderShell = () => {
         <input name="q" type="search" placeholder="Sual, komanda və ya oyun axtar..." aria-label="Axtarış"
           value="${SP.esc(new URLSearchParams(location.search).get("q") || "")}">
       </form>
-      <div class="top-actions">
-        <span class="chip" title="Ümumi xalın">${SP.icon("trophy")} ${st.points} xal</span>
-        <a class="user-chip" href="${u ? "profil.html" : "girish.html"}">
-          <span class="avatar">${u ? SP.esc(u.name.slice(0, 1).toUpperCase()) : "?"}</span>
-          <span>${u ? SP.esc(u.name) : "Giriş et"}</span>
-        </a>
-      </div>`;
+`;
     topbar.querySelector("#menuBtn")?.addEventListener("click", () => document.body.classList.toggle("nav-open"));
   }
 

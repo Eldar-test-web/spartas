@@ -43,13 +43,13 @@ const tail = (withPages) => `    </main>
 const P = {};
 
 P["oyunlar.html"] = {
-  title: "Oyunlar — SPARTANS",
+  title: "Yarışlar — SPARTANS",
   desc: "SPARTANS klubunun altı intellektual oyunu: Söz Təxmini, krossvord, ölçü təxmini, Fermi təxmini, mini oyunlar və klassik suallar.",
   page: "oyunlar",
   body: `      <div class="page-head">
-        <p class="eyebrow">Klubun oyun dəsti</p>
-        <h1>Oyunlar</h1>
-        <p class="lead">Altı oyun, altı ayrı düşünmə məşqi. Hər biri ayrıca səhifədə açılır — yarıda qoysan, nəticən itmir.</p>
+        <p class="eyebrow">Klubun yarış dəsti</p>
+        <h1>Yarışlar</h1>
+        <p class="lead">Altı yarış, altı ayrı düşünmə məşqi. Hər biri ayrıca səhifədə açılır — yarıda qoysan, nəticən itmir.</p>
         <div class="row stats-row" id="gameStats"></div>
       </div>
 
@@ -63,7 +63,7 @@ P["oyunlar.html"] = {
         <ul class="tick-list">
           <li>Bütün nəticələr yalnız bu brauzerin yerli yaddaşında saxlanılır; heç nə serverə göndərilmir.</li>
           <li>Gündəlik rejimdə söz, siluet və ya tapmaca gün boyu dəyişmir — hamı eyni suala cavab verir.</li>
-          <li>Oyunların bir hissəsi açıq lisenziyalı hazırdır, Azərbaycan əlifbasına və klubun rənglərinə uyğunlaşdırılıb. Mənbə siyahısı: <a href="CREDITS.md">CREDITS</a>.</li>
+          <li>Yarışların bir hissəsi açıq lisenziyalı hazırdır, Azərbaycan əlifbasına və klubun rənglərinə uyğunlaşdırılıb. Mənbə siyahısı: <a href="CREDITS.md">CREDITS</a>.</li>
         </ul>
       </div>`
 };
@@ -252,7 +252,7 @@ P["404.html"] = {
         <p class="lead">Bu ünvan klubda mövcud deyil. Bəlkə oyun köçürülüb ya da ünvanda bir simvol səhvdir.</p>
         <div class="row" style="gap:10px;justify-content:center">
           <a class="btn btn-mint" href="index.html">Ana səhifə</a>
-          <a class="btn btn-ghost" href="oyunlar.html">Oyunlar</a>
+          <a class="btn btn-ghost" href="oyunlar.html">Yarışlar</a>
         </div>
       </div>`
 };
