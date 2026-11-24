@@ -8,6 +8,8 @@ const ctx = { window: null, console };
 ctx.window = ctx;
 vm.createContext(ctx);
 vm.runInContext(src, ctx);
+const shapeSrc = fs.readFileSync(path.join(__dirname, "..", "assets", "js", "size-shapes.js"), "utf8");
+vm.runInContext(shapeSrc, ctx);
 const SP = ctx.SP;
 
 const AZ = new Set(SP.ALPHABET);
@@ -47,9 +49,19 @@ SP.FERMI.forEach((f, i) => {
 });
 
 SP.SIZES.forEach((s) => {
-  if (!(s.h > 1.7 && s.h < 1000)) errs.push(`Ölçü "${s.name}" hündürlüyü qəbuledilməz: ${s.h}`);
+  if (!(s.h > 1.7 && s.h <= 20000)) errs.push(`Ölçü "${s.name}" hündürlüyü qəbuledilməz: ${s.h}`);
+  if (!Number.isFinite(s.h)) errs.push(`Ölçü "${s.name}" hündürlüyü rəqəm deyil`);
+  if (!s.name || !s.note || !s.geo) errs.push(`Ölçü "${s.id}" mətn və ya coğrafiya sahəsi çatışmır`);
+  if (!SP.SIZE_CATS.includes(s.cat)) errs.push(`Ölçü "${s.name}" kateqoriyası naməlum: ${s.cat}`);
+  if (!SP.SIZE_SHAPES[s.id]) errs.push(`Ölçü "${s.name}" silueti yoxdur: ${s.id}`);
   if (seen.has("size:" + s.id)) errs.push(`Ölçü id təkrar: ${s.id}`);
   seen.set("size:" + s.id, 1);
+});
+
+if (SP.SIZES.length < 110) errs.push(`Ölçü kolleksiyası çox kiçikdir: ${SP.SIZES.length}`);
+Object.keys(SP.SIZE_SHAPES).forEach((id) => {
+  if (!SP.SIZES.some((s) => s.id === id)) errs.push(`Siluetin ölçü məlumatı yoxdur: ${id}`);
+  if (!(SP.SIZE_SHAPES[id].vb > 0) || !SP.SIZE_SHAPES[id].svg) errs.push(`Silueti pozulub: ${id}`);
 });
 
 SP.GAMES.forEach((g) => {

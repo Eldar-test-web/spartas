@@ -22,12 +22,12 @@
       <div class="page-head">
         <p class="eyebrow">Oyun 03 · Ölçək</p>
         <h1>Ölçü Tahmini</h1>
-        <p class="lead">Vizördə bir obyekt var. Təxmini kiçiltdikcə kamera ona yaxınlaşır —
+        <p class="lead">Vizördə 129 obyektdən biri var. Təxmini kiçiltdikcə kamera ona yaxınlaşır —
           pəncərələr, tağlar və digər detallar görünməyə başlayır. Obyekt yerində qalır, yanındakı
-          insan rəqəmi (1,7 m) və soldakı şkala isə ölçüyü anlamağa kömək edir. 5 raund, maksimum 500 xal.</p>
+          insan rəqəmi (1,7 m) və soldakı 1 m – 20 km şkalası ölçüyü anlamağa kömək edir. 5 raund, maksimum 500 xal.</p>
       </div>
 
-      <div class="grid" style="grid-template-columns:minmax(0,1fr) 320px;align-items:start">
+      <div class="grid size-layout">
         <section class="card">
           <div class="rounds" id="rounds" style="margin-bottom:16px"></div>
           <div class="size-stage" id="stage"></div>
@@ -67,6 +67,12 @@
             <p class="small dim">Sual: <b style="color:var(--mint)">nə qədər yaxın</b> təxmin etdiyin vacibdir, dəqiq rəqəm yox.</p>
           </section>
           <section class="card">
+            <h3>Siluet kolleksiyası</h3>
+            <p class="small muted">129 obyekt, 6 kateqoriya və ümumi loqarifmik ölçək.
+              Bütün siluetləri insan rəqəmi ilə yan-yana gör.</p>
+            <a class="btn btn-sm btn-ghost" href="olcu-qalereya.html">Ölçü qalereyası →</a>
+          </section>
+          <section class="card">
             <h3>Digər oyunlar</h3>
             <div class="row" id="otherGames"></div>
           </section>
@@ -78,6 +84,7 @@
 </div>
 <script src="assets/js/data.js"></script>
 <script src="assets/js/app.js"></script>
+<script src="assets/js/size-shapes.js"></script>
 <script src="assets/js/size.js"></script>
 </body>
 </html>
